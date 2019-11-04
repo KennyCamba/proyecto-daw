@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import {
     Button,
@@ -57,15 +58,15 @@ class Header extends React.Component{
                                     </NavItem>
                                     <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>
-                                        Perfil
+                                        <AccountCircleIcon/>
                                     </DropdownToggle>
                                     <DropdownMenu right>
                                         <DropdownItem>
-                                        Iniciar Sesión
+                                            <NavLink tag={Link} to="/login/" className="text-dark">Iniciar sesión</NavLink>
                                         </DropdownItem>
                                         <DropdownItem divider />
                                         <DropdownItem>
-                                        Salir
+                                            <NavLink tag={Link} to="/registrarse/" className="text-dark">Registrasre</NavLink>
                                         </DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>

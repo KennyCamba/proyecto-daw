@@ -11,9 +11,9 @@ class Contactanos extends React.Component {
             <div className="App">
             <body>
               <div class="row">
-              <form class="form-block my-2 my-lg-0 col-lg-5 col-sm-3 col-md-5 col-xs-3 mx-auto pt-5">
-               <p> Nombre: <input class="form-control mr-sm-1"  type="text"></input></p>	
-               <p> Apellido: <input class="form-control mr-sm-1" type="text"></input></p>	
+              <form class="form-block my-2 my-lg-0 col-lg-8 col-sm-8 col-md-8 col-xs-3 col-m-8 mx-auto pt-5">
+               <p>Nombre: <input class="form-control mr-sm-1"  type="text"></input></p>	
+               <p>Apellido: <input class="form-control mr-sm-1" type="text"></input></p>	
                <p>Correo:   <input class="form-control mr-sm-1" type="text"></input> </p>
                <p>Comentarios</p>
                 <p><textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="6"  placeholder="Escriba sus comentarios"  ></textarea></p>
