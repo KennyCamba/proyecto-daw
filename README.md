@@ -7,7 +7,7 @@ Proyecto de desarrollo de aplicaciones web.
 ### Objetivo: 
 Desarrollo de una plataforma que permita el ingreso de datos océano-costeros del litoral ecuatoriano
 
-### Programadores:
+### Desarrolladores
 1. Araujo Moran Steven
 2. Camba Torres Kenny
 3. Espinoza Delgado Joel
@@ -19,6 +19,7 @@ Desarrollo de una plataforma que permita el ingreso de datos océano-costeros de
 3. npm start
 
 ### Dependencias:
+npm install --save reactstrap react react-dom
 npm install --save react-router
 npm install react-router-dom
 npm install @material-ui/core

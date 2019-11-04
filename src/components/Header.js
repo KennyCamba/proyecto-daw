@@ -1,8 +1,30 @@
 import React from 'react';
 //import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // JavaScript plugin that hides or shows a component based on your scroll
 //import Headroom from "headroom.js";
 // reactstrap components
+import Inicio from './Inicio';
+import Contactanos from './Contactanos';
+
+import {
+    Button,
+    UncontrolledCollapse,
+    DropdownMenu,
+    DropdownItem,
+    DropdownToggle,
+    UncontrolledDropdown,
+    NavbarBrand,
+    Navbar,
+    NavItem,
+    NavLink,
+    Nav,
+    Container,
+    Row,
+    Col,
+    UncontrolledTooltip,
+    Input
+  } from "reactstrap";
 
 
 class Header extends React.Component{
@@ -13,35 +35,134 @@ class Header extends React.Component{
 
     render(){
         return(
+            <Router>
             <div>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="w">Centro internacional del pacifico para la reduccion de riesgos y desastres</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarColor01">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/inicio">Inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/datos">Datos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contactanos">Contactanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/nosotros">Quienes somos?</a>
-                        </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0" _lpchecked="1">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                </nav>
+                <header className="header-global">
+                    <Navbar
+                        className="navbar-main navbar-transparent navbar-dark bg-dark headroom"
+                        expand="lg"
+                        id="navbar-main"
+                    >
+                        <Container>
+                            <NavbarBrand className="mr-lg-5" to="/" >
+                                <img alt="." src="#"/>
+                            </NavbarBrand>
+                            <button className="navbar-toggler" id="navbar_global">
+                                <span className="navbar-toggler-icon" />
+                            </button>
+                            <UncontrolledCollapse navbar toggler="#navbar_global">
+                                <div className="navbar-collapse-header">
+                                    <Row>
+                                        <Col className="collapse-brand" xs="6">
+                                        <a href="/">
+                                            <img
+                                            alt=".===."
+                                            src="..."
+                                            />
+                                        </a>
+                                        </Col>
+                                        <Col className="collapse-close" xs="6">
+                                        <button className="navbar-toggler" id="navbar_global">
+                                            <span />
+                                            <span />
+                                        </button>
+                                        </Col>
+                                    </Row>
+                                </div>
+                                <Nav className="navbar-nav-hover align-items-lg-center" navbar>
+                                    <NavItem>
+                                        <NavLink>
+                                            <Link to="/">Inicio</Link>
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="https://github.com/reactstrap/reactstrap">Datos</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink>
+                                            <Link to="/contactanos/">Contactanos</Link>
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                    <NavLink>
+                                            <Link to="/nosotros/">Quienes somos?</Link>
+                                        </NavLink>
+                                    </NavItem>
+                                    <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        Perfil
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem>
+                                        Iniciar Sesión
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                        <DropdownItem>
+                                        Salir
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                                </Nav>
+                                <Nav className="align-items-lg-center ml-lg-auto" navbar>
+                                    <NavItem>
+                                        <NavLink
+                                        className="nav-link-icon"
+                                        href="https://www.facebook.com/creativetim"
+                                        id="tooltip333589074"
+                                        target="_blank"
+                                        >
+                                        <i className="fa fa-facebook-square" />
+                                        <span className="nav-link-inner--text d-lg-none ml-2">
+                                            Facebook
+                                        </span>
+                                        </NavLink>
+                                        <UncontrolledTooltip delay={0} target="tooltip333589074">
+                                        Like us on Facebook
+                                        </UncontrolledTooltip>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                        className="nav-link-icon"
+                                        href="https://www.instagram.com/creativetimofficial"
+                                        id="tooltip356693867"
+                                        target="_blank"
+                                        >
+                                        <i className="fa fa-instagram" />
+                                        <span className="nav-link-inner--text d-lg-none ml-2">
+                                            Instagram
+                                        </span>
+                                        </NavLink>
+                                        <UncontrolledTooltip delay={0} target="tooltip356693867">
+                                        Follow us on Instagram
+                                        </UncontrolledTooltip>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                        className="nav-link-icon"
+                                        href="https://twitter.com/creativetim"
+                                        id="tooltip184698705"
+                                        target="_blank"
+                                        >
+                                        <i className="fa fa-twitter-square" />
+                                        <span className="nav-link-inner--text d-lg-none ml-2">
+                                            Twitter
+                                        </span>
+                                        </NavLink>
+                                        <UncontrolledTooltip delay={0} target="tooltip184698705">
+                                        Follow us on Twitter
+                                        </UncontrolledTooltip>
+                                    </NavItem>
+                                    <NavItem>
+                                        <Input></Input>
+                                        <Button>Buscar</Button>
+                                    </NavItem>
+                                </Nav>
+                            </UncontrolledCollapse>
+                        </Container>
+                    </Navbar>
+                </header>
             </div>
+            </Router>
         );
     }
 }
