@@ -1,0 +1,13 @@
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 5%;
+}
+
+h2 {
+    color: #00BDC1;
+}
+
+#top{
+    background-color: #6875E6; 
+}
