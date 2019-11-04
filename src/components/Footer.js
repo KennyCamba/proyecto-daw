@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   NavItem,
@@ -30,12 +30,7 @@ class Footer extends React.Component {
               <Col md="6">
                 <Nav className="nav-footer justify-content-end">
                     <NavItem>
-                        <NavLink
-                            href="https://www.creative-tim.com/presentation?ref=adsr-footer"
-                            target="_blank"
-                        >
-                            Quienes somos?
-                        </NavLink>
+                        <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink

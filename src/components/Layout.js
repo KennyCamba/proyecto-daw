@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Container } from 'reactstrap';
 
 
@@ -13,9 +12,9 @@ class Layout extends Component {
     return (
       <div>
         <Header/>
-          <Container>
-            {this.props.children}
-          </Container>
+        <Container>
+          {this.props.children}
+        </Container>
         <Footer/>
       </div>
     );

@@ -1,11 +1,8 @@
 import React from 'react';
-//import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // JavaScript plugin that hides or shows a component based on your scroll
 //import Headroom from "headroom.js";
 // reactstrap components
-import Inicio from './Inicio';
-import Contactanos from './Contactanos';
 
 import {
     Button,
@@ -35,7 +32,6 @@ class Header extends React.Component{
 
     render(){
         return(
-            <Router>
             <div>
                 <header className="header-global">
                     <Navbar
@@ -45,7 +41,7 @@ class Header extends React.Component{
                     >
                         <Container>
                             <NavbarBrand className="mr-lg-5" to="/" >
-                                <img alt="." src="#"/>
+                                <h5 className="text-left text-light">Centro Internacional del pacífico <br/>para la reducción de riesgos y desastres</h5>
                             </NavbarBrand>
                             <button className="navbar-toggler" id="navbar_global">
                                 <span className="navbar-toggler-icon" />
@@ -71,22 +67,16 @@ class Header extends React.Component{
                                 </div>
                                 <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                                     <NavItem>
-                                        <NavLink>
-                                            <Link to="/">Inicio</Link>
-                                        </NavLink>
+                                        <NavLink tag={Link} to="/">Inicio</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="https://github.com/reactstrap/reactstrap">Datos</NavLink>
+                                        <NavLink tag={Link} to="/datos/">Datos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink>
-                                            <Link to="/contactanos/">Contactanos</Link>
-                                        </NavLink>
+                                        <NavLink tag={Link} to="/contactanos/">Contactanos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                    <NavLink>
-                                            <Link to="/nosotros/">Quienes somos?</Link>
-                                        </NavLink>
+                                        <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
                                     </NavItem>
                                     <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>
@@ -162,7 +152,6 @@ class Header extends React.Component{
                     </Navbar>
                 </header>
             </div>
-            </Router>
         );
     }
 }
