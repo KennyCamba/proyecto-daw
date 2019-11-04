@@ -13,6 +13,16 @@ Desarrollo de una plataforma que permita el ingreso de datos océano-costeros de
 3. Espinoza Delgado Joel
 4. Guerrero Garcia Christian
 
+### Para ejecutar:
+1. Una vez clonado el repositorio
+2. npm install
+3. npm start
+
+### Dependencias:
+npm install --save react-router
+npm install react-router-dom
+npm install @material-ui/core
+npm install @material-ui/icons
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
