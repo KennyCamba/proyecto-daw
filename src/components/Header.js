@@ -43,7 +43,7 @@ class Header extends React.Component{
                                 <span className="navbar-toggler-icon" />
                             </button>
                             <UncontrolledCollapse navbar toggler="#navbar_global">
-                                <Nav className="navbar-nav-hover align-items-lg-center" navbar>
+                                <Nav className="navbar-nav-hover align-items-lg-center container" navbar>
                                     <NavItem>
                                         <NavLink tag={Link} to="/">Inicio</NavLink>
                                     </NavItem>
@@ -71,10 +71,10 @@ class Header extends React.Component{
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                                 </Nav>
-                                <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                                    <NavItem>
-                                        <Input></Input>
-                                        <Button><SearchIcon/></Button>
+                                <Nav className="align-items-lg-center ml-lg-auto container" navbar>
+                                    <NavItem className="row">
+                                        <Input className="col-md-4 col-lg-8"></Input>
+                                        <Button className="col-md-1 col-lg-3 align-items-lg-center"><SearchIcon/></Button>
                                     </NavItem>
                                 </Nav>
                             </UncontrolledCollapse>
@@ -84,6 +84,7 @@ class Header extends React.Component{
             </div>
         );
     }
+    //col-xs-12 col-md-5 col-lg-5 card 
 }
 
 export default Header;

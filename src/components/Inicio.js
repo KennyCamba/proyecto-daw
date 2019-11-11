@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/css/inicio.css'
+import Carousels from './Carousels'
 
 class Inicio extends React.Component{
     constructor(args){
@@ -35,6 +36,11 @@ class Inicio extends React.Component{
                         </div>    
                     </div>
                 </section>
+
+                <link rel="stylesheet" href="<NODE_MODULES_FOLDER>/react-responsive-carousel/lib/styles/carousel.min.css"/>
+                
+                <Carousels></Carousels>
+                
             </div>
         );
     };

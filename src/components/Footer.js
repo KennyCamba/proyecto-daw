@@ -32,14 +32,14 @@ class Footer extends React.Component {
                 </div>
               </Col>
               <Col md="2">
-                    <Nav className="nav-footer align-items-lg-center ml-lg-auto" navbar>
-                        <NavItem>
+                    <Nav className="nav-footer bg-dark container row">
+                        <NavItem className="bg-light col-lg-4 container">
                             <NavLink
                                 className="nav-link-icon"
                                 href="https://www.facebook.com/creativetim"
                                 id="tooltip333589074"
                                 target="_blank"
-                                >
+                              >
                                 <i className="fa fa-facebook-square" />
                                 <span className="nav-link-inner--text d-lg-none ml-2">
                                     Facebook
@@ -50,7 +50,7 @@ class Footer extends React.Component {
                                 Like us on Facebook
                             </UncontrolledTooltip>
                         </NavItem>
-                        <NavItem>
+                        <NavItem className="bg-light col-lg-4">
                             <NavLink
                                 className="nav-link-icon"
                                 href="https://www.instagram.com/creativetimofficial"
@@ -67,7 +67,7 @@ class Footer extends React.Component {
                                 Follow us on Instagram
                             </UncontrolledTooltip>
                         </NavItem>
-                        <NavItem>
+                        <NavItem className="bg-light col-lg-4">
                             <NavLink
                                 className="nav-link-icon"
                                 href="https://twitter.com/creativetim"
