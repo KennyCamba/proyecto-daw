@@ -53,9 +53,8 @@ class Header extends React.Component{
                                     <NavItem>
                                         <NavLink tag={Link} to="/contactanos/">Contactanos</NavLink>
                                     </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
-                                    </NavItem>
+                                    
+
                                     <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>
                                         <AccountCircleIcon/>
@@ -70,6 +69,7 @@ class Header extends React.Component{
                                         </DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
+                                   
                                 </Nav>
                                 <Nav className="align-items-lg-center ml-lg-auto container" navbar>
                                     <NavItem className="row">
