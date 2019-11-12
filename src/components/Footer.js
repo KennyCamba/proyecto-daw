@@ -92,16 +92,12 @@ class Footer extends React.Component {
                         <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink
-                        href="http://blog.creative-tim.com?ref=adsr-footer"
-                        target="_blank"
-                        >
-                        Desarrolladores
-                        </NavLink>
+                         <NavLink tag={Link} to="/Desarrolladores/">Desarrolladores</NavLink>
+                        
                     </NavItem>
                     <NavItem>
                         <NavLink
-                        href="https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md"
+                        href="https://.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md"
                         target="_blank"
                         >
                         MIT License

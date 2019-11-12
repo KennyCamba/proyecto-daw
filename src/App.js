@@ -11,6 +11,7 @@ import Datos from './components/Datos';
 import Nosotros from './components/Nosotros';
 import Login from './components/Login'
 import Register from './components/Register'
+import Desarrolladores from './components/Desarrolladores'
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           <Route path='/nosotros/' component={Nosotros} />
           <Route path='/login/' component={Login}/>
           <Route path='/registrarse/' component={Register}/>
+          <Route path='/Desarrolladores/' component={Desarrolladores}/>
+
         </Layout>
       </Router>
     </div>

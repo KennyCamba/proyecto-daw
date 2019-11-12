@@ -1,11 +1,15 @@
 import React from 'react';
 import '../assets/css/inicio.css'
+import '../assets/css/noticias.css'
+import ReactDOM from "react-dom";
+
 
 class Inicio extends React.Component{
     constructor(args){
         super(args);
         this.state = {}
     }
+    
 
     render(){
         return(
@@ -35,9 +39,12 @@ class Inicio extends React.Component{
                         </div>    
                     </div>
                 </section>
+
             </div>
+  
         );
     };
+    
 }
 
 export default Inicio;
