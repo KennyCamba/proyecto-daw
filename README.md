@@ -25,6 +25,10 @@ npm install react-router-dom
 npm install @material-ui/core
 npm install @material-ui/icons
 
+### Pages:
+https://reactstrap.github.io/
+https://material-ui.com/es/components/material-icons/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
