@@ -26,7 +26,6 @@ function App() {
           <Route path='/login/' component={Login}/>
           <Route path='/registrarse/' component={Register}/>
           <Route path='/Desarrolladores/' component={Desarrolladores}/>
-
         </Layout>
       </Router>
     </div>

@@ -1,5 +1,4 @@
 import React, { Component ,img } from 'react';
-import { Container } from 'reactstrap';
 import '../assets/css/desarrolladores.css';
 
 
