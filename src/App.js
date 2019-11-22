@@ -10,6 +10,7 @@ import Nosotros from './components/Nosotros';
 import Login from './components/Login'
 import Register from './components/Register'
 import Desarrolladores from './components/Desarrolladores'
+import Observacion from './components/Observacion'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/login/' component={Login}/>
           <Route path='/registrarse/' component={Register}/>
           <Route path='/Desarrolladores/' component={Desarrolladores}/>
+          <Route path='/observacion/' component={Observacion} />
         </Layout>
       </Router>
     </div>
