@@ -7,7 +7,8 @@ import {
   DropdownItem,
   Container,
   Row,
-  Col
+  Col,
+  Input
 } from "reactstrap";
 
 class Observacion extends React.Component{
@@ -22,15 +23,15 @@ class Observacion extends React.Component{
     		<div> 
     		<Container>
     			<Row>
-    			 <Col>Observacion</Col>
+    			 <Col  xs="auto">Observacion</Col>
     			</Row>
     			<Row>
-    			<Col>Provincia</Col>
-        		<Col>Canton</Col>
-        		<Col>Parroquia</Col>
+    			<Col  xs="auto">Provincia</Col>
+        		<Col  xs="3">Canton</Col>
+        		<Col  xs="2">Parroquia</Col>
     			</Row>
     			<Row>
-    			<Col>
+    			<Col  xs="auto">
     			<UncontrolledDropdown>
     			<DropdownToggle caret>Escoga Provincia</DropdownToggle>
     			<DropdownMenu>
@@ -38,14 +39,14 @@ class Observacion extends React.Component{
     			</DropdownMenu>
     			</UncontrolledDropdown>
     			</Col>
-        		<Col><UncontrolledDropdown>
+        		<Col  xs="auto"><UncontrolledDropdown>
     			<DropdownToggle caret>Escoga Canton</DropdownToggle>
     			<DropdownMenu>
     			<DropdownItem>Canton1</DropdownItem>
     			</DropdownMenu>
     			</UncontrolledDropdown>
     			</Col>
-        		<Col><UncontrolledDropdown>
+        		<Col  xs="auto"><UncontrolledDropdown>
     			<DropdownToggle caret>Escoga Ciudad</DropdownToggle>
     			<DropdownMenu>
     			<DropdownItem>Ciudad1</DropdownItem>
@@ -54,10 +55,10 @@ class Observacion extends React.Component{
     			</Col>
     			</Row>
     			<Row>
-    			<Col>Estacion</Col>
+    			<Col xs="auto">Estacion</Col>
     			</Row>
     			<Row>
-    			<Col>
+    			<Col xs="auto">
     			<UncontrolledDropdown>
     			<DropdownToggle caret>Escoga una Estacion</DropdownToggle>
     			<DropdownMenu>
@@ -67,11 +68,11 @@ class Observacion extends React.Component{
     			</Col>
     			</Row>
     			<Row>
-    			<Col>Fase Lunar</Col>
-        		<Col>Epoca</Col>
+    			<Col xs="auto">Fase Lunar</Col>
+        		<Col xs="3">Epoca</Col>
     			</Row>
     			<Row>
-    			<Col>
+    			<Col xs="auto">
     			<UncontrolledDropdown>
     			<DropdownToggle caret>Escoga Fase Lunar</DropdownToggle>
     			<DropdownMenu>
@@ -79,7 +80,7 @@ class Observacion extends React.Component{
     			</DropdownMenu>
     			</UncontrolledDropdown>
     			</Col>
-        		<Col><UncontrolledDropdown>
+        		<Col xs="auto"><UncontrolledDropdown>
     			<DropdownToggle caret>Escoga epoca</DropdownToggle>
     			<DropdownMenu>
     			<DropdownItem>Canton1</DropdownItem>
@@ -88,16 +89,11 @@ class Observacion extends React.Component{
     			</Col>
     			</Row>
     			<Row>
-    			<Col>Fecha de Observacion</Col>
+    			<Col xs="auto">Fecha de Observacion</Col>
     			</Row>
     			<Row>
-    			<Col>
-    			<UncontrolledDropdown>
-    			<DropdownToggle caret>Fecha</DropdownToggle>
-    			<DropdownMenu>
-    			<DropdownItem>Estacion1</DropdownItem>
-    			</DropdownMenu>
-    			</UncontrolledDropdown>
+    			<Col xs="auto">
+                <Input type="Fecha" name="fecha" id="Fecha" placeholder="Ingrese la fecha" />
     			</Col>
     			</Row>
 
