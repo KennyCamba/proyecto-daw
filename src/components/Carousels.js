@@ -15,8 +15,8 @@ import '../assets/css/carousels.css';
 const items = [
   {
     src: imagen1,
-    altText: 'Manglaralto',
-    caption: 'Manglaralto',
+    altText: 'Manglar Alto',
+    caption: 'Manglar Alto',
     subtitulo: 'Estación 1',
   },
   {
@@ -27,8 +27,8 @@ const items = [
   },
   {
     src: imagen3,
-    altText: 'Playas',
-    caption: 'Playas',
+    altText: 'General Villamil',
+    caption: 'General Villamil',
     subtitulo: 'Estación 2',
   },
   {

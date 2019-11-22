@@ -1,7 +1,7 @@
 import React from 'react';
 //import '../assets/css/inicio.css'
 import Carousels from './Carousels'
-import ReactMapboxGl, {ZoomControl, RotationControl, ScaleControl} from 'react-mapbox-gl';
+import ReactMapboxGl, {ZoomControl, RotationControl, Layer, Feature, Popup} from 'react-mapbox-gl';
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1Ijoia2VubnljYW1iYSIsImEiOiJjanlkZHh0YTEwbTFtM21vY2xrdHR2YXM0In0.oH3K5cJipTZlRKf8AdVSfg"
@@ -12,24 +12,71 @@ class Inicio extends React.Component{
     
     constructor(args){
         super(args);
-        this.state = {}
+        this.state = {
+            hasErrors: false,
+            stations: {}
+        };
+        this.hide = this.hide.bind(this);
+        this.show = this.show.bind(this);
+    }
+
+    hide(id){
+        var a = document.getElementById(id);
+        a.className = "d-none";
+    }
+
+    show(id){
+        var a = document.getElementById(id);
+        a.className = "";
+    }
+
+    componentDidMount(){
+        fetch('https://api.myjson.com/bins/gd7r6')
+      .then(res => res.json())
+      .then(res => this.setState({ stations: res }))
+      .catch(() => this.setState({ hasErrors: true }));
     }
 
     render(){
+        const stations = this.state.stations;
         return(
             <div>
-                <div className="text-center pt-3 pb-3">
-                    <div  className="container-fluid col-md-6 col-sm-9" id="map">
-                        <Map style="mapbox://styles/mapbox/streets-v11" 
+                <div class="text-center pt-3 pb-3" id="top">
+                    <div  class="container-fluid col-md-6 col-sm-9" id="map">
+                        <Map style="mapbox://styles/mapbox/streets-v8" 
                             containerStyle={{
                                 height: '80vh',
                             }}
                             center={[-79.183403, -1.831239]}
                             zoom={[6]}>
-                            <div style={{position: 'absolute', right: 0}}>
+                            <div style={{position: 'relative', right: 0}}>
                                 <ZoomControl/>
-                                <ScaleControl/>
                                 <RotationControl/>
+                            </div>
+                            <div id="markers">
+                                { Object.keys(stations).map(k =>(
+                                    <div key={"maker" + k}>
+                                        <Layer type="symbol"
+                                        id={k}
+                                        layout={{'icon-image': 'marker-15'}}>
+                                        <Feature coordinates={[stations[k].coord.lng, stations[k].coord.lat]} 
+                                        onMouseEnter={() => this.show("popup" + k)}
+                                        onMouseLeave={() => this.hide("popup" + k)}/>
+                                        </Layer>
+                                        <div className="d-none" id={"popup" + k}>
+                                            <Popup
+                                                coordinates={[stations[k].coord.lng, stations[k].coord.lat]}>
+                                                <div>
+                                                    <strong>Nombre: </strong>{stations[k].name} <br/>
+                                                    <strong>Ubicación: </strong> {stations[k].parish}, cantón  {stations[k].canton},<br></br>
+                                                    provincia de {stations[k].province}<br/>
+                                                    <strong>Total de observaciones: </strong>{stations[k].obs}<br/>
+                                                    <strong>Última observación: </strong>{stations[k].last_obs}                                                        
+                                                </div>        
+                                            </Popup>
+                                        </div>
+                                    </div> 
+                                ))}
                             </div>
                         </Map>
                     </div>
