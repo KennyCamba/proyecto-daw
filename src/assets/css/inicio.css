@@ -1,13 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
+.colorDark { color: #003135; }
+.primaryColor { color: #00B4C1; }
+.secundaryColor { color: #007982; }
+.tercearydColor { color: #006D75; }
+.colorTitle { color: #00555B; }
+
+.btn {
+    background-color: #007982;
+    border-block-color: #007982;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #003135;
+    color: #a1a1a1;
+}
+
 #map {
     height: 530px;
     width: 100%;
     border-radius: 5%;
-}
-
-h2 {
-    color: #00BDC1;
 }
 
 #top{

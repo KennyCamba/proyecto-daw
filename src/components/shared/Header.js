@@ -35,7 +35,7 @@ class Header extends React.Component{
                         id="navbar-main"
                     >
                         <Container>
-                            <NavbarBrand className="mr-lg-5" to="/" >
+                            <NavbarBrand className="mr-lg-5" tag={Link} to="/" >
                                 <h5 className="text-left text-light">Centro Internacional del pacífico <br/>para la reducción de riesgos y desastres</h5>
                             </NavbarBrand>
                             <button className="navbar-toggler" id="navbar_global">
@@ -54,25 +54,25 @@ class Header extends React.Component{
                                     </NavItem>
                                     
                                     <UncontrolledDropdown nav inNavbar>
-                                    <DropdownToggle nav caret>
-                                        <AccountCircleIcon/>
-                                    </DropdownToggle>
-                                    <DropdownMenu right>
+                                        <DropdownToggle nav caret>
+                                            <AccountCircleIcon/>
+                                        </DropdownToggle>
+                                        <DropdownMenu right>
                                         <DropdownItem>
                                             <NavLink tag={Link} to="/login/" className="text-dark">Iniciar sesión</NavLink>
                                         </DropdownItem>
                                         <DropdownItem divider />
                                         <DropdownItem>
-                                            <NavLink tag={Link} to="/registrarse/" className="text-dark">Registrasre</NavLink>
+                                            <NavLink tag={Link} to="/registrarse/" className="text-dark">Registrarse</NavLink>
                                         </DropdownItem>
                                     </DropdownMenu>
-                                </UncontrolledDropdown>
-                                   
+                                    </UncontrolledDropdown>  
                                 </Nav>
+
                                 <Nav className="align-items-lg-center ml-lg-auto container" navbar>
                                     <NavItem className="row">
                                         <Input className="col-md-4 col-lg-8"></Input>
-                                        <Button className="col-md-1 col-lg-3 align-items-lg-center"><SearchIcon/></Button>
+                                        <Button className="col-md-1 col-lg-3 align-items-lg-center offset-1"><SearchIcon/></Button>
                                     </NavItem>
                                 </Nav>
                             </UncontrolledCollapse>

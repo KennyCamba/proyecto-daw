@@ -1,5 +1,10 @@
 import React from "react";
-
+import logo from '../assets/img/barco6x6.svg'
+import '../assets/css/login.css';
+import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
+import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
+import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -14,7 +19,8 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
+  NavLink,
 } from "reactstrap";
 
 
@@ -27,75 +33,80 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <hr/>
+        <br/>
         <main ref="main">
           <section className="section section-shaped section-lg">
-            <div className="shape shape-style-1 bg-gradient-default">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
             <Container className="pt-lg-md">
               <Row className="justify-content-center">
                 <Col lg="5">
                   <Card className="bg-secondary shadow border-0">
-                    <CardHeader className="bg-white pb-5">
-                      <div className="text-muted text-center mb-3">
-                        <h3>Registro</h3>
+                    <CardHeader className="bg-white pb-1">
+                      <div className="text-muted text-center mb-1">
+                        <h3 className="colorTitle">Registro</h3>
+                        <img id="logologin" src={logo} alt="logo"/>
                       </div>
                     </CardHeader>
-                    <CardBody className="px-lg-5 py-lg-5">
-                      <div className="text-center text-muted mb-4">
-                        <small>Or sign up with credentials</small>
-                      </div>
+                    <CardBody className="px-lg-4 py-lg-5">
                       <Form role="form">
                         <FormGroup>
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-hat-3" />
+                              <InputGroupText className="loginCuadro">
+                                <AccountBoxOutlinedIcon/>
                               </InputGroupText>
                             </InputGroupAddon>
-                            <Input placeholder="Nombre" type="text" />
+                            <Input placeholder="Nombre" type="text" className="loginCuadro"/>
                           </InputGroup>
                         </FormGroup>
                         <FormGroup>
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
+                              <InputGroupText className="loginCuadro">
+                                <AccountBoxOutlinedIcon/>
                               </InputGroupText>
                             </InputGroupAddon>
-                            <Input placeholder="Correo electrónico" type="email" />
+                            <Input placeholder="Apellido" type="text" className="loginCuadro"/>
                           </InputGroup>
+                        </FormGroup>
+                        <FormGroup className="mb-3">
+                            <InputGroup className="input-group-alternative">
+                                <InputGroupAddon addonType="prepend">
+                                    <InputGroupText className="loginCuadro">
+                                        <MailOutlinedIcon/>
+                                    </InputGroupText>
+                                </InputGroupAddon>
+                                <Input placeholder="Correo" type="email" className="loginCuadro" />
+                            </InputGroup>
                         </FormGroup>
                         <FormGroup>
-                          <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-lock-circle-open" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Contraseña"
-                              type="password"
-                              autoComplete="off"
-                            />
-                          </InputGroup>
+                            <InputGroup className="input-group-alternative">
+                                <InputGroupAddon addonType="prepend">
+                                    <InputGroupText className="loginCuadro">
+                                        <HttpsOutlinedIcon/>
+                                    </InputGroupText>
+                                </InputGroupAddon>
+                                <Input placeholder="Contraseña" type="password" autoComplete="off"className="loginCuadro" />
+                            </InputGroup>
+                            <div className="font-italic text-left">
+                              <small>
+                                password strength:{" "}
+                                <span className="text-success font-weight-700">
+                                  strong
+                                </span>
+                              </small>
+                            </div>
                         </FormGroup>
-                        <div className="text-muted font-italic">
-                          <small>
-                            password strength:{" "}
-                            <span className="text-success font-weight-700">
-                              strong
-                            </span>
-                          </small>
-                        </div>
+                        <FormGroup>
+                            <InputGroup className="input-group-alternative">
+                                <InputGroupAddon addonType="prepend">
+                                    <InputGroupText className="loginCuadro">
+                                        <HttpsOutlinedIcon/>
+                                    </InputGroupText>
+                                </InputGroupAddon>
+                                <Input placeholder="Confirmar contraseña" type="password" autoComplete="off"className="loginCuadro" />
+                            </InputGroup>
+                        </FormGroup>
+                        
                         <Row className="my-4">
                           <Col xs="12">
                             <div className="custom-control custom-control-alternative custom-checkbox">
@@ -110,10 +121,7 @@ class Register extends React.Component {
                               >
                                 <span>
                                   Estoy de acuerdo con las{" "}
-                                  <a
-                                    href="#pablo"
-                                    onClick={e => e.preventDefault()}
-                                  >
+                                  <a href="#pablo" onClick={e => e.preventDefault()}>
                                     Politicas de privacidad.
                                   </a>
                                 </span>
@@ -122,19 +130,21 @@ class Register extends React.Component {
                           </Col>
                         </Row>
                         <div className="text-center">
-                          <Button
-                            className="mt-4"
-                            color="primary"
-                            type="button"
-                          >
+                          <Button className="mt-2" type="button">
                             Crear cuenta
                           </Button>
                         </div>
                       </Form>
                     </CardBody>
                   </Card>
+                  <Row className="mt-3">
+                      <Col className="text-right" xs="12">
+                          <NavLink tag={Link} to="/login/" className="text-dark"><small>Iniciar sesión</small></NavLink>
+                      </Col>
+                  </Row>
                 </Col>
               </Row>
+              <br/>
             </Container>
           </section>
         </main>

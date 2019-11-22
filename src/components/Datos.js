@@ -9,7 +9,9 @@ class Datos extends React.Component{
     render(){
         return(
             <div>
-                Datos
+                <br/>
+                <h3 className="colorTitle">Datos</h3>
+                <hr className="secundaryColor"/>
             </div>
         );
     }

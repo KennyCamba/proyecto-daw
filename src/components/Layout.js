@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
-
 import Header from './shared/Header';
 import Footer from './shared/Footer';
+import '../assets/css/inicio.css'
 
 class Layout extends Component {
   static displayName = Layout.name;
@@ -11,9 +10,10 @@ class Layout extends Component {
     return (
       <div>
         <Header/>
-        <Container>
+        <br/>
+        <div className="container card border-info">
           {this.props.children}
-        </Container>
+        </div>
         <Footer/>
       </div>
     );

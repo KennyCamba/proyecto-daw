@@ -24,6 +24,7 @@ npm install --save react-router
 npm install react-router-dom
 npm install @material-ui/core
 npm install @material-ui/icons
+npm install react-mapbox-gl mapbox-gl --save
 
 ### Pages:
 https://reactstrap.github.io/
