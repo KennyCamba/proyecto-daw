@@ -1,8 +1,8 @@
 import React from "react";
-import logo from '../assets/img/barco6x6.svg'
+import logo from '../../assets/img/barco6x6.svg'
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
-import '../assets/css/login.css';
+import '../../assets/css/login.css';
 import { Link } from "react-router-dom";
 
 // reactstrap components

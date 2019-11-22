@@ -29,6 +29,7 @@ npm install react-mapbox-gl mapbox-gl --save
 ### Pages:
 https://reactstrap.github.io/
 https://material-ui.com/es/components/material-icons/
+https://devcenter.heroku.com/articles/logging#view-logs
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

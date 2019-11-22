@@ -7,11 +7,11 @@ import Inicio from './components/Inicio';
 import Contactanos from './components/Contactanos';
 import Datos from './components/Datos';
 import Nosotros from './components/Nosotros';
-import Login from './components/Login'
-import Register from './components/Register'
-import Desarrolladores from './components/Desarrolladores'
+import Login from './components/users/Login';
+import Register from './components/users/Register';
+import Profile from './components/users/Profile'
+import Desarrolladores from './components/Desarrolladores';
 import Observacion from './components/Observacion'
-
 
 function App() {
   return (
@@ -24,8 +24,9 @@ function App() {
           <Route path='/nosotros/' component={Nosotros} />
           <Route path='/login/' component={Login}/>
           <Route path='/registrarse/' component={Register}/>
-          <Route path='/Desarrolladores/' component={Desarrolladores}/>
+          <Route path='/desarrolladores/' component={Desarrolladores}/>
           <Route path='/observacion/' component={Observacion} />
+          <Route path='/profile/' component={Profile}/>
         </Layout>
       </Router>
     </div>

@@ -11,7 +11,7 @@ class Layout extends Component {
       <div>
         <Header/>
         <br/>
-        <div className="container card border-info">
+        <div className="cuerpo container card border-info">
           {this.props.children}
         </div>
         <Footer/>

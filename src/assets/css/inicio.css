@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
 .colorDark { color: #003135; }
 .primaryColor { color: #00B4C1; }
 .secundaryColor { color: #007982; }
 .tercearydColor { color: #006D75; }
 .colorTitle { color: #00555B; }
+
+.firstFont { font-family: 'Open Sans', sans-serif; }
+.secundaryFont{ font-family: 'Ubuntu', sans-serif; }
+.thirdFont { font-family: 'Lato', sans-serif; }
+.primaryFont {font-family: 'Roboto', sans-serif; }
+.secondFont { font-family: 'Arimo', sans-serif; }
+.tercearyFont { font-family: 'PT Sans', sans-serif; }
 
 .btn {
     background-color: #007982;
@@ -28,6 +33,10 @@
     background: radial-gradient(circle, rgba(0,49,53,1) 0%, rgba(0,109,117,1) 35%, rgba(0,121,130,1) 55%, rgba(0,180,193,1) 72%, rgba(0,85,91,1) 100%);
 }
 
-*{
-    font-family: 'Roboto', sans-serif;
+.cuerpo {
+    font-family: 'Arimo', 'Ubuntu', sans-serif;
+}
+
+.header-global, .footer {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
 }

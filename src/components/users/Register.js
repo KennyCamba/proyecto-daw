@@ -1,6 +1,6 @@
 import React from "react";
-import logo from '../assets/img/barco6x6.svg'
-import '../assets/css/login.css';
+import logo from '../../assets/img/barco6x6.svg'
+import '../../assets/css/login.css';
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';

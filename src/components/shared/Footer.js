@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 //import FacebookIcon from '@material-ui/icons/Facebook';
 //import TwitterIcon from '@material-ui/icons/Twitter';
 //import InstagramIcon from '@material-ui/icons/Instagram';
-// reactstrap components
+
+//reactstrap components
 import {
   NavItem,
   NavLink,
@@ -17,35 +18,33 @@ import {
 class Footer extends React.Component {
   render() {
     return (
-      <>
-        <footer className="footer has-cards">
-         <Container>
-           <hr />
-            <Row className="align-items-center justify-content-md-between">
-              <Col md="4">
-                <div className="copyright">
-                  © {new Date().getFullYear()}{" "}
-                  <a href="https://www.creative-tim.com?ref=adsr-footer">
-                    CopyRight
-                  </a>
-                  .
-                </div>
-              </Col>
-              
-              <Col md="6">
-                <Nav className="nav-footer justify-content-end">
-                    <NavItem>
-                        <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
-                    </NavItem>
-                    <NavItem>
-                         <NavLink tag={Link} to="/Desarrolladores/">Desarrolladores</NavLink>
-                    </NavItem>
-                </Nav>
-              </Col>
-            </Row>
-          </Container>
-        </footer>
-      </>
+      <footer className="footer has-cards">
+        <Container>
+          <hr/>
+          <Row className="align-items-center justify-content-md-between">
+            <Col md="4">
+              <div className="copyright">
+                © {new Date().getFullYear()}{" "}
+                <a href="https://www.creative-tim.com?ref=adsr-footer">
+                  CopyRight
+                </a>
+                .
+              </div>
+            </Col>
+            
+            <Col md="6">
+              <Nav className="nav-footer justify-content-end">
+                  <NavItem>
+                      <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
+                  </NavItem>
+                  <NavItem>
+                        <NavLink tag={Link} to="/desarrolladores/">Desarrolladores</NavLink>
+                  </NavItem>
+              </Nav>
+            </Col>
+          </Row>
+        </Container>
+      </footer>
     );
   }
 }

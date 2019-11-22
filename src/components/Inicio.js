@@ -42,14 +42,14 @@ class Inicio extends React.Component{
                     
                     <div className="row">
                         <div className="col-md-6 text-justify"> 
-                            <h2 className="colorTitle">Mision</h2>
+                            <h2 className="colorTitle">Misión</h2>
                             <p>
                             Consolidar información marino-costera del litoral ecuatoriano para mejorar la capacidad de toma de decisiones sobre los diversos procesos costeros y el análisis de las características de las playas, a través de gráficos estadísticos.
                             </p>
                         </div>
                         
                         <div className="col-md-6 text-justify"> 
-                            <h2 className="colorTitle">Vision</h2>
+                            <h2 className="colorTitle">Visión</h2>
                             <p>
                             Crear estadísticas internacionales de las diferentes variables que intervienen en los procesos costeros con el fin de entender su influencia en la población mundial.
                             </p>
