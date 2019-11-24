@@ -33,9 +33,19 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <br/>
         <main ref="main">
-          <section className="section-shaped">
+          <section className="section section-shaped section-lg">
+            <div className="shape shape-style-1 bg-gradient-default">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+            </div>
+
             <Container className="pt-lg-md">
               <Row className="justify-content-center">
                 <Col lg="5">
@@ -139,7 +149,7 @@ class Register extends React.Component {
                   </Card>
                   <Row className="mt-3">
                       <Col className="text-right" xs="12">
-                          <NavLink tag={Link} to="/login/" className="text-dark"><small>Iniciar sesión</small></NavLink>
+                          <NavLink tag={Link} to="/login/" className="text-light"><small>Iniciar sesión</small></NavLink>
                       </Col>
                   </Row>
                 </Col>

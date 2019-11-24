@@ -11,7 +11,7 @@
 .secondFont { font-family: 'Arimo', sans-serif; }
 .tercearyFont { font-family: 'PT Sans', sans-serif; }
 
-.cuerpo {
+.App {
     font-family: 'Arimo', 'Ubuntu', sans-serif;
 }
 
@@ -54,8 +54,24 @@
     height: 10%;
 }
 
+#logoSubHeader {
+    width: 50%;
+    height: 50%;
+}
+
 #contenedorlogoHeader {
     width: 70vw;
+}
+
+@media screen and (max-width:800px) and (min-width:650px) {
+    #contenedorlogoHeader {
+        width: 50vw;
+    }
+}
+@media screen and (max-width:350px){
+    #contenedorlogoHeader {
+        width: 67vw;
+    }
 }
 
 .btnFooter {

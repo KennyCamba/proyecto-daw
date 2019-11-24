@@ -32,9 +32,19 @@ class Login extends React.Component {
   }
   render() {
     return (
-        <Container>
             <main ref="main">
-                <section className="section-shaped">
+                <section className="section section-shaped section-lg">
+                    <div className="shape shape-style-1 bg-gradient-default">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+
                     <Container className="pt-lg-md">
                         <Row className="justify-content-center">
                             <Col lg="5">
@@ -93,10 +103,10 @@ class Login extends React.Component {
                                 </Card>
                                 <Row className="mt-3">
                                     <Col className="text-left" xs="6">
-                                        <NavLink tag={Link} to="/recuperarcontrasena/" className="text-dark"><small>Olvidó su contraseña?</small></NavLink>
+                                        <NavLink tag={Link} to="/recuperarcontrasena/" className="text-light"><small>Olvidó su contraseña?</small></NavLink>
                                     </Col>
                                     <Col className="text-right" xs="6">
-                                        <NavLink tag={Link} to="/register/" className="text-dark"><small>Crear nueva cuenta</small></NavLink>
+                                        <NavLink tag={Link} to="/register/" className="text-light"><small>Crear nueva cuenta</small></NavLink>
                                     </Col>
                                 </Row>
                             </Col>
@@ -105,7 +115,6 @@ class Login extends React.Component {
                     </Container>
                 </section>
             </main>
-        </Container>
     );
   }
 }

@@ -8,11 +8,11 @@ class Layout extends Component {
 
   render () {
     return (
-      <div className="cuerpo">
+      <>
         <Header/>
-          {this.props.children}
+        {this.props.children}
         <Footer/>
-      </div>
+      </>
     );
   }
 }
