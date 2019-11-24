@@ -20,11 +20,9 @@ class Observacion extends React.Component{
 
     render(){
     	return(
-    		<div> 
     		<Container>
-    			<Row>
-    			 <Col  xs="auto">Observacion</Col>
-    			</Row>
+				<h3 className="colorTitle pt-4">Observaciones</h3>
+				<hr/>
     			<Row>
     			<Col  xs="auto">Provincia</Col>
         		<Col  xs="3">Canton</Col>
@@ -96,10 +94,9 @@ class Observacion extends React.Component{
                 <Input type="Fecha" name="fecha" id="Fecha" placeholder="Ingrese la fecha" />
     			</Col>
     			</Row>
-
+				<br/>
     		</Container>
-    		</div>
-    		)
+		)
     }
 }
 

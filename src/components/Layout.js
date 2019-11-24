@@ -8,12 +8,9 @@ class Layout extends Component {
 
   render () {
     return (
-      <div>
+      <div className="cuerpo">
         <Header/>
-        <br/>
-        <div className="cuerpo container card border-info">
           {this.props.children}
-        </div>
         <Footer/>
       </div>
     );

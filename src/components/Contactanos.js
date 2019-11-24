@@ -1,7 +1,24 @@
 import React from 'react'
 import '../assets/css/contactanos.css'
-import logo from '../assets/img/barco6x6.svg'
+import logo from '../assets/img/logos/barco6x6.svg'
+import classnames from 'classnames'
 
+import {
+  Input,
+  InputGroupText,
+  InputGroupAddon,
+  InputGroup,
+  FormGroup,
+  Button,
+  CardBody,
+  Card,
+  Col,
+  Row,
+  Container,
+  //DropdownToggle,
+  //DropdownMenu, 
+  //DropdownItem,
+} from "reactstrap";
 
 class Contactanos extends React.Component {
     constructor(args){
@@ -15,38 +32,78 @@ class Contactanos extends React.Component {
             <h3 className="colorTitle pt-4">Contáctanos</h3>
             <hr/>
             <div className="container row">
-              <form className="form-block my-1 my-lg-0 col-lg-8 col-sm-11 col-md-11 col-xs-11 col-12 pt-2">
-                <div className="container row text-left">
-                  <div className="col-md-6 col-sm-12 col-12">
-                    <p>Nombre:</p>
-                    <input className="form-control"  type="text"></input>
-                  </div>
-                  <div className="col-md-6 col-sm-12 col-12">
-                    <p>Apellido:</p>
-                    <input className="form-control" type="text"></input>
-                  </div>
-                  <div className="col-md-6 col-sm-12 col-12">
-                    <p>Lugar de origen:</p>
-                    <input  className="form-control mr-sm-1" type="text"></input>
-                  </div>
-                  <div className="col-md-6 col-sm-12 col-12">
-                    <p>Correo:</p>
-                    <input className="form-control mr-sm-1" type="text"></input>
-                  </div>
-                  <div className="col-md-12 col-sm-12 col-12">
-                    <p>Detalle:</p>
-                    <textarea className="form-control z-depth-1" id="exampleFormControlTextarea6" rows="6"  placeholder="Escriba sus comentarios" ></textarea>
-                  </div>
-                  <div className="col-md-12 col-sm-12 col-12">
-                    <br/>
-                    <button className="btn" type="submit">Enviar</button>
-                  </div>
-                </div>
-              </form>
-              <div className="col-lg-4 col-sm-11 col-md-11 col-xs-11 col-12 pt-2">
-                <img id="logologin" src={logo} alt="logo"/>
-                <p className="text-justify">Gracias por preferirnos estaremos gustosos de atender sus dudas y sugerencias.</p>
-              </div>
+              <Container>
+                <Row>
+                  <Col lg="6">
+                    <Card className="bg-gradient-secondary shadow">
+                      <CardBody className="p-lg-5">
+                        <FormGroup className={classnames("col-12", { focused: this.state.nameFocused })}>
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-user-run" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input placeholder="Nombre" type="text" onFocus={e => this.setState({ nameFocused: true })} onBlur={e => this.setState({ nameFocused: false })} />
+                          </InputGroup>
+                        </FormGroup>
+
+                        <FormGroup className={classnames("col-12", { focused: this.state.lastnameFocused })}>
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-user-run" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input placeholder="Apellido" type="text" onFocus={e => this.setState({ lastnameFocused: true })} onBlur={e => this.setState({ lastnameFocused: false })} />
+                          </InputGroup>
+                        </FormGroup>
+
+                        <FormGroup className={classnames("col-12", {focused: this.state.emailFocused})}>
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-email-83" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input placeholder="Correo" type="email" onFocus={e => this.setState({ emailFocused: true })} onBlur={e => this.setState({ emailFocused: false })}/>
+                          </InputGroup>
+                        </FormGroup>
+
+                        <FormGroup className={classnames( "col-12", {focused: this.state.placeFocused})}>
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-map-big" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input placeholder="Lugar de origen" type="text" onFocus={e => this.setState({ placeFocused: true })} onBlur={e => this.setState({ placeFocused: false })}/>
+                          </InputGroup>
+                        </FormGroup>
+
+                        <FormGroup className="mb-4, col-12">
+                          <Input className="form-control-alternative" cols="80" name="name" placeholder="Detalle..." rows="4" type="textarea" />
+                        </FormGroup>
+                        
+                        <div className="col-12">
+                          <Button block size="lg" type="button" >
+                            Enviar
+                          </Button>
+                        </div>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  
+                  <Col lg="6">
+                    <Card className="bg-gradient-secondary shadow">
+                      <CardBody className="p-lg-5">
+                        <img id="logologin" src={logo} alt="logo"/>
+                        <p className="text-justify">Gracias por preferirnos estaremos gustosos de atender sus dudas y sugerencias.</p>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
+              </Container>
             </div>
             <br/>
           </div>

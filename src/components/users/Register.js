@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/img/barco6x6.svg'
+import logo from '../../assets/img/logos/barco6x6.svg'
 import '../../assets/css/login.css';
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
@@ -35,7 +35,7 @@ class Register extends React.Component {
       <>
         <br/>
         <main ref="main">
-          <section className="section section-shaped section-lg">
+          <section className="section-shaped">
             <Container className="pt-lg-md">
               <Row className="justify-content-center">
                 <Col lg="5">

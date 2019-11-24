@@ -12,7 +12,8 @@ import {
   Container,
   Row,
   Col,
-  //UncontrolledTooltip,
+  UncontrolledTooltip,
+  Button,
 } from "reactstrap";
 
 class Footer extends React.Component {
@@ -20,9 +21,8 @@ class Footer extends React.Component {
     return (
       <footer className="footer has-cards">
         <Container>
-          <hr/>
           <Row className="align-items-center justify-content-md-between">
-            <Col md="4">
+            <Col md="3" xs="4">
               <div className="copyright">
                 © {new Date().getFullYear()}{" "}
                 <a href="https://www.creative-tim.com?ref=adsr-footer">
@@ -32,7 +32,36 @@ class Footer extends React.Component {
               </div>
             </Col>
             
-            <Col md="6">
+            <Col md="3" xs= "4">
+              <Button
+                className="btnFooter"
+                color="twitter"
+                href="https://twitter.com/creativetim"
+                id="tooltip126536702"
+                size="lg"
+                target="_blank"
+              >
+                <i class="fa fa-twitter" aria-hidden="true"/>
+              </Button>
+              <UncontrolledTooltip delay={0} target="tooltip126536702">
+                Follow us
+              </UncontrolledTooltip>
+              <Button
+                className="btnFooter ml-1"
+                color="facebook"
+                href="https://www.facebook.com/creativetim"
+                id="tooltip383967593"
+                size="lg"
+                target="_blank"
+              >
+                <i className=" fa fa-facebook-official" aria-hidden="true"/>
+              </Button>
+              <UncontrolledTooltip delay={0} target="tooltip383967593">
+                Like us
+              </UncontrolledTooltip>
+            </Col>
+
+            <Col md="6" xs="4">
               <Nav className="nav-footer justify-content-end">
                   <NavItem>
                       <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
@@ -50,60 +79,3 @@ class Footer extends React.Component {
 }
 
 export default Footer;
-/*
-<Col md="2">
-  <Nav className="nav-footer bg-dark container row">
-      <NavItem className="bg-light col-lg-4 container">
-          <NavLink
-              className="nav-link-icon"
-              href="https://www.facebook.com/creativetim"
-              id="tooltip333589074"
-              target="_blank"
-            >
-              <i className="fa fa-facebook-square" />
-              <span className="nav-link-inner--text d-lg-none ml-2">
-                  Facebook
-              </span>
-              <FacebookIcon/>
-          </NavLink>
-          <UncontrolledTooltip delay={0} target="tooltip333589074">
-              Like us on Facebook
-          </UncontrolledTooltip>
-      </NavItem>
-      <NavItem className="bg-light col-lg-4">
-          <NavLink
-              className="nav-link-icon"
-              href="https://www.instagram.com/creativetimofficial"
-              id="tooltip356693867"
-              target="_blank"
-              >
-              <i className="fa fa-instagram" />
-              <span className="nav-link-inner--text d-lg-none ml-2">
-                  Instagram
-              </span>
-              <InstagramIcon/>
-          </NavLink>
-          <UncontrolledTooltip delay={0} target="tooltip356693867">
-              Follow us on Instagram
-          </UncontrolledTooltip>
-      </NavItem>
-      <NavItem className="bg-light col-lg-4">
-          <NavLink
-              className="nav-link-icon"
-              href="https://twitter.com/creativetim"
-              id="tooltip184698705"
-              target="_blank"
-              >
-              <i className="fa fa-twitter-square" />
-              <span className="nav-link-inner--text d-lg-none ml-2">
-                  Twitter
-              </span>
-              <TwitterIcon/>
-          </NavLink>
-          <UncontrolledTooltip delay={0} target="tooltip184698705">
-          Follow us on Twitter
-          </UncontrolledTooltip>
-      </NavItem>
-  </Nav>
-</Col>
-*/

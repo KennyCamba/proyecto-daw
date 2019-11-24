@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/img/barco6x6.svg'
+import logo from '../../assets/img/logos/barco6x6.svg'
 import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
 import '../../assets/css/login.css';
@@ -32,11 +32,9 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <>
-        <br/>
         <Container>
             <main ref="main">
-                <section className="section section-shaped section-lg">       
+                <section className="section-shaped">
                     <Container className="pt-lg-md">
                         <Row className="justify-content-center">
                             <Col lg="5">
@@ -76,7 +74,6 @@ class Login extends React.Component {
                                                     </small>
                                                 </div>
                                             </FormGroup>
-                                            
                                             <div className="custom-control custom-control-alternative custom-checkbox text-left">
                                                 <input className="custom-control-input" id="customCheckLogin" type="checkbox"/>
                                                 <label className="custom-control-label" htmlFor="customCheckLogin">
@@ -90,8 +87,7 @@ class Login extends React.Component {
                                                 >
                                                     Iniciar
                                                 </Button>
-                                            </div>
-                                            
+                                            </div>         
                                         </Form>
                                     </CardBody>
                                 </Card>
@@ -100,7 +96,7 @@ class Login extends React.Component {
                                         <NavLink tag={Link} to="/recuperarcontrasena/" className="text-dark"><small>Olvidó su contraseña?</small></NavLink>
                                     </Col>
                                     <Col className="text-right" xs="6">
-                                        <NavLink tag={Link} to="/registrarse/" className="text-dark"><small>Crear nueva cuenta</small></NavLink>
+                                        <NavLink tag={Link} to="/register/" className="text-dark"><small>Crear nueva cuenta</small></NavLink>
                                     </Col>
                                 </Row>
                             </Col>
@@ -110,7 +106,6 @@ class Login extends React.Component {
                 </section>
             </main>
         </Container>
-      </>
     );
   }
 }
