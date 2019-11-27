@@ -75,32 +75,33 @@ class Header extends React.Component{
 
                     <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                         {/* Opciones del encabezado */}
-                            <NavItem>
-                                <NavLink tag={Link} to="/">
-                                    <i className="fa fa-home d-lg-none mr-1" />
-                                    <span className="nav-link-inner--text">Inicio</span>
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink tag={Link} to="/datos/">
-                                    <i className="fa fa-line-chart d-lg-none mr-1" />
-                                    <span className="nav-link-inner--text">Datos</span>
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink tag={Link} to="/observacion/">
-                                    <i className="fa fa-sticky-note d-lg-none mr-1" />
-                                    <span className="nav-link-inner--text">Observación</span>
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink tag={Link} to="/contactanos/">
-                                    <i className="fa fa-address-card d-lg-none mr-1" />
-                                    <span className="nav-link-inner--text">Contáctanos</span>
-                                </NavLink>
-                            </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/">
+                                <i className="fa fa-home d-lg-none mr-1" />
+                                <span className="nav-link-inner--text">Inicio</span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/datos/" className="Datos">
+                                <i className="fa fa-line-chart d-lg-none mr-1" />
+                                <span className="nav-link-inner--text">Datos</span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/observacion/" className="Observaciones">
+                                <i className="fa fa-sticky-note d-lg-none mr-1" />
+                                <span className="nav-link-inner--text">Observación</span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/contactanos/" className="Contactanos">
+                                <i className="fa fa-address-card d-lg-none mr-1" />
+                                <span className="nav-link-inner--text">Contáctanos</span>
+                            </NavLink>
+                        </NavItem>
+                        {/* Opciones de desplegables */}
                         <UncontrolledDropdown nav>
-                            <DropdownToggle nav caret>
+                            <DropdownToggle nav caret className="Desplegable">
                                 <i className="ni ni-circle-08" />
                             </DropdownToggle>
                             <DropdownMenu>

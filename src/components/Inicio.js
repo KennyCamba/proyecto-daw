@@ -1,9 +1,11 @@
 import React from 'react';
-//import '../assets/css/inicio.css'
+//import '../assets/css/inicio.css';
 import Carousels from './Carousels'
 import ReactMapboxGl, {ZoomControl, RotationControl, Layer, Feature, Popup} from 'react-mapbox-gl';
+import {Card, CardBody} from 'reactstrap';
 
-import {Card, CardBody} from 'reactstrap'
+import { Steps, Hints } from 'intro.js-react';
+import 'intro.js/introjs.css';
 
 const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1Ijoia2VubnljYW1iYSIsImEiOiJjanlkZHh0YTEwbTFtM21vY2xrdHR2YXM0In0.oH3K5cJipTZlRKf8AdVSfg"
@@ -16,7 +18,60 @@ class Inicio extends React.Component{
         super(args);
         this.state = {
             hasErrors: false,
-            stations: {}
+            stations: {},
+            //INTRO
+            stepsEnabled: false,
+            initialStep: 0,
+            steps: [
+                {
+                    element: '.Datos',
+                    intro: 'Aquí se pueden observar resumenes, estadísticas de las observaciones realizadas y descargarlas.',
+                },
+                {
+                    element: '.Observaciones',
+                    intro: 'Aquí se puede registrar las nuevas observaciones.',
+                },
+                {
+                    element: '.Contactanos',
+                    intro: 'Formulario para sugerencias o consultas.',
+                },
+                {
+                    element: '.Desplegable',
+                    intro: 'Entre las opciones de aqui se puede iniciar, cerrar sesión, ver perfil, registrarse.',
+                },
+                {
+                    element: '.mapboxgl-canvas',
+                    intro: 'En este mapa se podran observar las estaciones con su localización.',
+                },
+                {
+                    element: '.QueHacemos',
+                    intro: 'Que hacemos?',
+                },
+                {
+                    element: '.Mision',
+                    intro: 'Mision!',
+                },
+                {
+                    element: '.Vision',
+                    intro: 'Vision!',
+                },
+                {
+                    element: '.carousel',
+                    intro: 'Resumen de noticias.',
+                },
+                {
+                    element: '.redesSociales',
+                    intro: 'Redes sociales.',
+                },
+            ],
+            hintsEnabled: true,
+            hints: [
+                {
+                element: '.mapboxgl-canvas',
+                hint: 'En este mapa se podran observar las estaciones con su localización.',
+                hintPosition: 'middle-right',
+                }
+            ]
         };
         this.hide = this.hide.bind(this);
         this.show = this.show.bind(this);
@@ -41,23 +96,38 @@ class Inicio extends React.Component{
 
     render(){
         const stations = this.state.stations;
+        const { stepsEnabled, steps, initialStep, hintsEnabled, hints } = this.state;
+
         return(
             <>
+                <Steps
+                enabled={stepsEnabled}
+                steps={steps}
+                initialStep={initialStep}
+                onExit={this.onExit.bind(this)}
+                />
+                <Hints
+                enabled={hintsEnabled}
+                hints={hints}
+                />
+
                 <div className="position-relative">
                     <section className="section section-lg section-shaped pb-250">
                         {/* Circles background */}
                         <div className="shape shape-style-1 shape-default">
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                            <span />
                         </div>
 
                         {/* Mapa */}
                         <div className="text-center pb-5">
+                            <i class="fa fa-question-circle fa-lg primaryColor" onClick={this.intro.bind(this)} aria-hidden="true"></i>
+                            
                             <div  className="container-fluid col-md-6 col-sm-9" id="map">
                                 <Map style="mapbox://styles/mapbox/streets-v8" 
                                     containerStyle={{
@@ -103,30 +173,30 @@ class Inicio extends React.Component{
                             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0" >
                                 <polygon className="fill-white" points="2560 0 2560 100 0 100" />
                             </svg>
-                        </div>
-                        
-                        
+                        </div>   
                     </section>
                 </div>
                 
                 <section className="section section-lg pt-lg-0 mt--200">
                     <div className="container">
-                        <Card className="card-lift--hover shadow border-0">
+                            <Card className=" shadow border-0">{/*card-lift--hover esta clase para efecto de posicion de mouse*/}
                             <CardBody className="py-5">
-                                <h2 className="text-left primaryColor">¿Qué hacemos?</h2>
-                                <p className="text-justify">
-                                    Somos un centro de investigación, dentro de ESPOL, enfocado en comprender los riesgos de los desastres naturales y fortalecer su gobernanza con el propósito de reducir los riesgos existentes y prevenir la aparucuón de otros nuevos.
-                                </p>
+                                <div className="QueHacemos">
+                                    <h2 className="text-left primaryColor">¿Qué hacemos?</h2>
+                                    <p className="text-justify">
+                                        Somos un centro de investigación, dentro de ESPOL, enfocado en comprender los riesgos de los desastres naturales y fortalecer su gobernanza con el propósito de reducir los riesgos existentes y prevenir la aparucuón de otros nuevos.
+                                    </p>
+                                </div>
                                 
                                 <div className="row">
-                                    <div className="col-md-6 text-justify"> 
+                                    <div className="col-md-6 text-justify Mision"> 
                                         <h2 className="primaryColor">Misión</h2>
                                         <p>
                                         Consolidar información marino-costera del litoral ecuatoriano para mejorar la capacidad de toma de decisiones sobre los diversos procesos costeros y el análisis de las características de las playas, a través de gráficos estadísticos.
                                         </p>
                                     </div>
                                     
-                                    <div className="col-md-6 text-justify"> 
+                                    <div className="col-md-6 text-justify Vision"> 
                                         <h2 className="primaryColor">Visión</h2>
                                         <p>
                                         Crear estadísticas internacionales de las diferentes variables que intervienen en los procesos costeros con el fin de entender su influencia en la población mundial.
@@ -147,6 +217,12 @@ class Inicio extends React.Component{
         );
     };
     
+    onExit(e){
+        this.setState(() => ({ stepsEnabled: false }));
+    };
+    intro(e){
+        this.setState(prevState => ({ stepsEnabled: !prevState.stepsEnabled }) );
+    };
 }
 
 export default Inicio;

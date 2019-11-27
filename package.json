@@ -2,12 +2,14 @@
   "name": "litoral-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://stevenaraujo98.github.io/proyecto-daw",
   "dependencies": {
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
     "classnames": "^2.2.6",
     "headroom.js": "^0.10.3",
     "install": "^0.13.0",
+    "intro.js": "^2.9.3",
     "intro.js-react": "^0.2.0",
     "mapbox-gl": "^1.5.0",
     "npm": "^6.13.1",
@@ -22,6 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

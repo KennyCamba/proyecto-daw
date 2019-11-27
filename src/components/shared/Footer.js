@@ -32,28 +32,14 @@ class Footer extends React.Component {
               </div>
             </Col>
             
-            <Col md="3" xs= "4">
-              <Button
-                className="btnFooter"
-                color="twitter"
-                href="https://twitter.com/creativetim"
-                id="tooltip126536702"
-                size="lg"
-                target="_blank"
-              >
+            <Col md="3" xs= "4" className="redesSociales">
+              <Button className="btnFooter" color="twitter" href="https://twitter.com/creativetim" id="tooltip126536702" size="lg" target="_blank" >
                 <i class="fa fa-twitter" aria-hidden="true"/>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip126536702">
                 Follow us
               </UncontrolledTooltip>
-              <Button
-                className="btnFooter ml-1"
-                color="facebook"
-                href="https://www.facebook.com/creativetim"
-                id="tooltip383967593"
-                size="lg"
-                target="_blank"
-              >
+              <Button className="btnFooter ml-1" color="facebook" href="https://www.facebook.com/creativetim" id="tooltip383967593" size="lg" target="_blank" >
                 <i className=" fa fa-facebook-official" aria-hidden="true"/>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip383967593">

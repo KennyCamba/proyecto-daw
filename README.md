@@ -27,6 +27,7 @@ npm install node-sass --save,
 npm install headroom.js --save,
 npm install classnames --save,
 npm install intro.js-react,
+npm install intro.js --save,
 
 npm install @material-ui/core,
 npm install @material-ui/icons,
