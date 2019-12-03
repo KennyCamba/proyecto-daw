@@ -21,6 +21,7 @@ class Inicio extends React.Component{
             stations: {},
             obs: {},
             obsError: false,
+            isLoading: true,
             //INTRO
             stepsEnabled: false,
             initialStep: 0,
@@ -97,52 +98,77 @@ class Inicio extends React.Component{
 
       fetch('https://cip-rrd.herokuapp.com/observaciones')
       .then(res => res.json())
-      .then(res => this.setState({ obs: res }))
+      .then(res => this.setState({ obs: res, isLoading: false }))
       .catch(() => this.setState({ obsError: true }));
 
     }
 
-    
+    formatDate(date){
+        var dd = date.getDate();
+        var mm = date.getMonth() + 1; 
+        var yyyy = date.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        } 
+        if (mm < 10) {
+            mm = '0' + mm;
+        } 
+        return dd + '/' + mm + '/' + yyyy;
+    }
 
     getData(obs){
-        var list = new Object();
+        var list = {};
         for(var id in obs){
             var ob = obs[id];
             var sta = ob["estacion"]
             if(!list.hasOwnProperty(sta["id"])){
-                var item = new Object();
+                var item = {};
                 list[sta["id"]] = item;
                 item["id"] = sta["id"];
                 item['src'] = sta["img"];
                 item['altText'] = sta["Parroquia"];
                 item["header"] = sta["Parroquia"];
+                item["nombre"] = sta["nombre"];
                 item["fecha"] = [ob["fecha"]];
-                var alt = 0;
-                var vien = 0;
+                let alt = 0;
+                let vien = 0;
                 for(var i in ob["mediciones"]){
-                    var med = ob["mediciones"][i];
+                    let med = ob["mediciones"][i];
                     alt += med["olas"]["altura_promedio"];
                     vien += med["viento"]["velocidad"];
                 }
-                item["alturas"] = [alt/ob["mediciones"].length];
-                item["vientos"] = [vien/ob["mediciones"].length];
+                item["altura"] = [alt/ob["mediciones"].length];
+                item["viento"] = [vien/ob["mediciones"].length];
             }else{
                 list[sta["id"]]["fecha"].push(ob["fecha"]);
-                var alt = 0;
-                var vien = 0;
-                for(var i in ob["mediciones"]){
-                    var med = ob["mediciones"][i];
+                let alt = 0;
+                let vien = 0;
+                for(var j in ob["mediciones"]){
+                    let med = ob["mediciones"][j];
                     alt += med["olas"]["altura_promedio"];
                     vien += med["viento"]["velocidad"];
                 }
-                list[sta["id"]]["alturas"].push(alt);
-                list[sta["id"]]["vientos"].push(vien);
+                list[sta["id"]]["altura"].push(alt/ob["mediciones"].length);
+                list[sta["id"]]["viento"].push(vien/ob["mediciones"].length);
             }            
-            
         }
+
         var result = [];
+        
         for(var key in list){
-            
+            var fechas = list[key]["fecha"];
+            for(var k=0; k<fechas.length; k++){
+                var f = fechas[k].split("/");
+                fechas[k] = new Date(parseInt(f[2]), parseInt(f[1]), parseInt(f[0]));
+            }
+            var max = fechas.reduce(function (a, b) { return a > b ? a : b; });
+            var index = fechas.indexOf(max);
+            list[key]["obs"] = list[key]["fecha"].length;
+            list[key]["fecha"] = list[key]["fecha"][index];
+            list[key]["altura"] = list[key]["altura"][index].toFixed(2);
+            list[key]["viento"] = list[key]["viento"][index].toFixed(2);
+            list[key]["caption"] = list[key]["nombre"] + ": El " + this.formatDate(list[key]["fecha"]) + " se registraron olas de " + list[key]["altura"] + " m. de altura y vientos con velocidades de " + list[key]["viento"] + " m/s."
+            result.push(list[key]);
         }
         return [list, result];
     }
@@ -151,8 +177,9 @@ class Inicio extends React.Component{
         const stations = this.state.stations;
         const { stepsEnabled, steps, initialStep, hintsEnabled, hints } = this.state;
         const obs = this.state.obs;
-        var r = this.getData(obs);
-        console.log(r[0]);
+        var datos = this.getData(obs);
+        var sts = datos[0];
+    
         return(
             <>
                 <Steps
@@ -211,8 +238,8 @@ class Inicio extends React.Component{
                                                             <strong>Nombre: </strong>{stations[k].name} <br/>
                                                             <strong>Ubicación: </strong> {stations[k].parish}, cantón  {stations[k].canton},<br></br>
                                                             provincia de {stations[k].province}<br/>
-                                                            <strong>Total de observaciones: </strong>{stations[k].obs}<br/>
-                                                            <strong>Última observación: </strong>{stations[k].last_obs}                                                        
+                                                            <strong>Total de observaciones: </strong>{this.state.isLoading ? "..." : sts[k].obs}<br/>
+                                                            <strong>Última observación: </strong>{this.state.isLoading ? "..." : this.formatDate(sts[k].fecha)}                                                        
                                                         </div>        
                                                     </Popup>
                                                 </div>
@@ -265,7 +292,7 @@ class Inicio extends React.Component{
                             
                 <section className="section bg-secondary">
                     <div className="container">
-                        <Carousels items={obs}></Carousels>
+                        <Carousels items={!this.state.isLoading ? datos[1] : []}></Carousels>
                     </div>
                 </section>
             </>

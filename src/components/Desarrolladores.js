@@ -28,7 +28,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Steven Araujo</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/stevenaraujo98">[Perfil]</a>
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/stevenaraujo98">[Perfil]</a>
                             </div>
                         </div>
                         
@@ -37,7 +37,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Kenny Camba</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/KennyCamba">[Perfil]</a>
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/KennyCamba">[Perfil]</a>
                             </div>
                         </div>
                         
@@ -46,7 +46,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Christian Guerrero</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/chjoguer">[Perfil]</a>
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/chjoguer">[Perfil]</a>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Joel Espinoza</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/joeaespi">[Perfil]</a>
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/joeaespi">[Perfil]</a>
                             </div>
                         </div>    
                     </div>
