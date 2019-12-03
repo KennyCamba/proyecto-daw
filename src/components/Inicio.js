@@ -102,8 +102,6 @@ class Inicio extends React.Component{
 
     }
 
-    
-
     getData(obs){
         var list = new Object();
         for(var id in obs){

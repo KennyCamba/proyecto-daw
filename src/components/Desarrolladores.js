@@ -1,6 +1,5 @@
-import React, { Component ,img } from 'react';
+import React, { Component } from 'react';
 import '../assets/css/desarrolladores.css';
-
 
 class Desarrolladores extends Component {
 
@@ -28,7 +27,17 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Steven Araujo</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/stevenaraujo98">[Perfil]</a>
+                                <div className="row container text-center">
+                                    <a href="https://www.facebook.com/stevenaraujo98" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-facebook pr-3 " aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.twitter.com/stevenaraujo98" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-twitter pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.github.com/stevenaraujo98" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-github-alt pr-3" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         
@@ -37,7 +46,17 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Kenny Camba</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/KennyCamba">[Perfil]</a>
+                                <div className="row container text-center">
+                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-twitter pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.github.com/KennyCamba" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-github-alt pr-3" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         
@@ -46,7 +65,17 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Christian Guerrero</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/chjoguer">[Perfil]</a>
+                                <div className="row container text-center">
+                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-twitter pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.github.com/chjoguer" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-github-alt pr-3" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -55,7 +84,17 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Joel Espinoza</b></h5>
                                 <p>Engineer Computer Scinece</p>
-                                <a target="_blank" href="https://github.com/joeaespi">[Perfil]</a>
+                                <div className="row container text-center">
+                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-twitter pr-3" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.github.com/joeaespi" target="_blank" rel="noopener noreferrer">
+                                        <i class="fa fa-github-alt pr-3" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>    
                     </div>

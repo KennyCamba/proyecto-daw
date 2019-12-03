@@ -14,10 +14,6 @@ import {
   Card,
   Col,
   Row,
-  //Container,
-  //DropdownToggle,
-  //DropdownMenu, 
-  //DropdownItem,
 } from "reactstrap";
 
 class Contactanos extends React.Component {
@@ -78,12 +74,34 @@ class Contactanos extends React.Component {
 
                           <FormGroup className={classnames( "col-12", {focused: this.state.placeFocused})}>
                             <InputGroup className="input-group-alternative">
+                              
                               <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
                                   <i className="ni ni-map-big" />
                                 </InputGroupText>
                               </InputGroupAddon>
-                              <Input placeholder="Lugar de origen" type="text" onFocus={e => this.setState({ placeFocused: true })} onBlur={e => this.setState({ placeFocused: false })}/>
+
+                              {/* 
+                                <Input placeholder="Lugar de origen" type="text" 
+                                onFocus={e => this.setState({ placeFocused: true })} 
+                                onBlur={e => this.setState({ placeFocused: false })} 
+                                valid/> 
+                              */}
+                              
+                              <Input placeholder="Lugar de origen" type="select" name="select" onFocus={e => this.setState({ placeFocused: true })} onBlur={e => this.setState({ placeFocused: false })}>
+                                <option value="">Lugar de origen</option>
+                                <option>Ambato</option>
+                                <option>Babahoyo</option>
+                                <option>Chimborazo</option>
+                                <option>Cuenca</option>
+                                <option>Duran</option>
+                                <option>Guayaquil</option>
+                                <option>Milagro</option>
+                                <option>Quito</option>
+                                <option>Riobamba</option>
+                                <option>Salinas</option>
+                              </Input>
+
                             </InputGroup>
                           </FormGroup>
 

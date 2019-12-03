@@ -47,11 +47,11 @@ class Observacion extends React.Component{
 						</UncontrolledDropdown>
 						</Col>
 						<Col  xs="auto"><UncontrolledDropdown>
-						<DropdownToggle caret>Escoga Ciudad</DropdownToggle>
-						<DropdownMenu>
-						<DropdownItem>Ciudad1</DropdownItem>
-						</DropdownMenu>
-						</UncontrolledDropdown>
+							<DropdownToggle caret>Escoga Ciudad</DropdownToggle>
+							<DropdownMenu>
+								<DropdownItem>Ciudad1</DropdownItem>
+							</DropdownMenu>
+							</UncontrolledDropdown>
 						</Col>
 						</Row>
 						<Row>
