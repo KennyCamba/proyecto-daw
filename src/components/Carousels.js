@@ -11,26 +11,26 @@ const items = [
   {
     src: imagen1,
     altText: 'Manglar Alto',
-    caption: 'Manglar Alto',
-    subtitulo: 'Estación 1',
+    header: 'Manglar Alto',
+    caption: 'Estación 1',
   },
   {
     src: imagen2,
     altText: 'Olón',
-    caption: 'Olón',
-    subtitulo: 'Estación 1',
+    header: 'Olón',
+    caption: 'Estación 1',
   },
   {
     src: imagen3,
     altText: 'General Villamil',
-    caption: 'General Villamil',
-    subtitulo: 'Estación 2',
+    header: 'General Villamil',
+    caption: 'Estación 2',
   },
   {
     src: imagen4,
     altText: 'Salinas',
-    caption: 'Salinas',
-    subtitulo: 'Estación 3',
+    header: 'Salinas',
+    caption: 'Estación 3',
   }
 ];
 
