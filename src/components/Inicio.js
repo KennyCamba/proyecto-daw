@@ -19,6 +19,8 @@ class Inicio extends React.Component{
         this.state = {
             hasErrors: false,
             stations: {},
+            obs: {},
+            obsError: false,
             //INTRO
             stepsEnabled: false,
             initialStep: 0,
@@ -88,16 +90,69 @@ class Inicio extends React.Component{
     }
 
     componentDidMount(){
-        fetch('https://api.myjson.com/bins/gd7r6')
+        fetch('https://cip-rrd.herokuapp.com/estaciones')
       .then(res => res.json())
       .then(res => this.setState({ stations: res }))
       .catch(() => this.setState({ hasErrors: true }));
+
+      fetch('https://cip-rrd.herokuapp.com/observaciones')
+      .then(res => res.json())
+      .then(res => this.setState({ obs: res }))
+      .catch(() => this.setState({ obsError: true }));
+
+    }
+
+    
+
+    getData(obs){
+        var list = new Object();
+        for(var id in obs){
+            var ob = obs[id];
+            var sta = ob["estacion"]
+            if(!list.hasOwnProperty(sta["id"])){
+                var item = new Object();
+                list[sta["id"]] = item;
+                item["id"] = sta["id"];
+                item['src'] = sta["img"];
+                item['altText'] = sta["Parroquia"];
+                item["header"] = sta["Parroquia"];
+                item["fecha"] = [ob["fecha"]];
+                var alt = 0;
+                var vien = 0;
+                for(var i in ob["mediciones"]){
+                    var med = ob["mediciones"][i];
+                    alt += med["olas"]["altura_promedio"];
+                    vien += med["viento"]["velocidad"];
+                }
+                item["alturas"] = [alt/ob["mediciones"].length];
+                item["vientos"] = [vien/ob["mediciones"].length];
+            }else{
+                list[sta["id"]]["fecha"].push(ob["fecha"]);
+                var alt = 0;
+                var vien = 0;
+                for(var i in ob["mediciones"]){
+                    var med = ob["mediciones"][i];
+                    alt += med["olas"]["altura_promedio"];
+                    vien += med["viento"]["velocidad"];
+                }
+                list[sta["id"]]["alturas"].push(alt);
+                list[sta["id"]]["vientos"].push(vien);
+            }            
+            
+        }
+        var result = [];
+        for(var key in list){
+            
+        }
+        return [list, result];
     }
 
     render(){
         const stations = this.state.stations;
         const { stepsEnabled, steps, initialStep, hintsEnabled, hints } = this.state;
-
+        const obs = this.state.obs;
+        var r = this.getData(obs);
+        console.log(r[0]);
         return(
             <>
                 <Steps
@@ -210,7 +265,7 @@ class Inicio extends React.Component{
                             
                 <section className="section bg-secondary">
                     <div className="container">
-                        <Carousels></Carousels>
+                        <Carousels items={obs}></Carousels>
                     </div>
                 </section>
             </>
