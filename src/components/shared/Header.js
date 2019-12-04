@@ -114,6 +114,9 @@ class Header extends React.Component{
                                 <DropdownItem to="/register/" tag={Link}>
                                     Registrarse
                                 </DropdownItem>
+                                <DropdownItem to="/estacion/" tag={Link}>
+                                    Registrar Estación
+                                </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem to="/salir/" tag={Link}>
                                     Cerrar sesión
