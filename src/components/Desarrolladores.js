@@ -28,7 +28,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Steven Araujo</b></h5>
                                 <p>Student Engineer Computer Scinece<br/>Member CME</p>
-                                <div className="row container text-center">
+                                <div className="row container text-center offset-2">
                                     <a href="https://www.facebook.com/stevenaraujo98" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-facebook pr-3 " aria-hidden="true"></i>
                                     </a>
@@ -47,7 +47,7 @@ class Desarrolladores extends Component {
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Kenny Camba</b></h5>
                                 <p>Engineer Computer Scinece<br/>Supreme Leader CME</p>
-                                <div className="row container text-center">
+                                <div className="row container text-center offset-2">
                                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
                                     </a>
@@ -66,7 +66,7 @@ class Desarrolladores extends Component {
                                 <img src={user3} alt="Avatar" id="avatar" />
                                 <h5><b>Christian Guerrero</b></h5>
                                 <p>Student Engineer Computer Scinece<br/>Aspirant CME</p>
-                                <div className="row container text-center">
+                                <div className="row container text-center offset-2">
                                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
                                     </a>
@@ -84,8 +84,8 @@ class Desarrolladores extends Component {
                             <div class="card-body">
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" id="avatar" />
                                 <h5><b>Joel Espinoza</b></h5>
-                                <p>Students Engineer Computer Scinece</p>
-                                <div className="row container text-center">
+                                <p>Students Engineer Computer Scinece <br/>Student hidden </p>
+                                <div className="row container text-center offset-2">
                                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-facebook pr-3" aria-hidden="true"></i>
                                     </a>
