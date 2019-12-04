@@ -1,7 +1,5 @@
 import React from 'react';
 import {Card, CardBody} from 'reactstrap';
-import imagen from '../assets/img/costas.jpg';
-import imagen2 from '../assets/img/espol.png';
 
 class Nosotros extends React.Component{
     constructor(args){
@@ -31,7 +29,7 @@ class Nosotros extends React.Component{
                     <div className="container">
                             <Card className=" shadow border-0">{/*card-lift--hover esta clase para efecto de posicion de mouse*/}
                             <CardBody className="py-5">
-                            <div class="container QueHacemos">
+                            <div className="container QueHacemos">
                                 <div className="row header ">
                                     <div className="col-xs-12 text-center">
                                     <h2 className="primaryColor">Historia del centro</h2>
@@ -70,7 +68,7 @@ class Nosotros extends React.Component{
                            <div className="row">
                                 <div className="col-md-6 first-column text-justify">
                                 <div className="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="/" className="list-group-item list-group-item-action flex-column align-items-start">
                                     <div className="d-flex w-50 justify-content-between">
                                     <h5 className="mb-1">Datos Costeros </h5>
                                     </div>
@@ -79,7 +77,7 @@ class Nosotros extends React.Component{
                                     de catástrofes.</p>
                                     <small className="text-left">2018-Acutalmente</small>
                                     </a>
-                                    <a href="#" className="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="/" className="list-group-item list-group-item-action flex-column align-items-start">
                                     <div className="d-flex w-50 h-100 justify-content-between">
                                     <h5 className="mb-1">Resclima Dúran</h5>
                                     </div>

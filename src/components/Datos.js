@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames'
-import jsondata from './../assets/resource/observaciones.json'
 import CanvasJSReact from './../assets/vendor/canvasjs.react';
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
@@ -25,7 +24,7 @@ import {
     Table,
   } from "reactstrap";
 
-var CanvasJS = CanvasJSReact.CanvasJS;
+//var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class Datos extends React.Component{
     constructor(args){
@@ -44,28 +43,10 @@ class Datos extends React.Component{
     };
 
     componentDidMount(){
-        //fetch(jsondata)
-        //.then(res => res.json())
-        //.then(res => {
-                let id = 0
-                for(let key in jsondata){
-                    console.log(jsondata[key])
-                    
-                    let estacion = jsondata[key].estacion.nombre
-                    let fecha = jsondata[key].fecha
-                    let observador = jsondata[key].observador
-                    let faseLunar = jsondata[key].fase_lunar
-                    let mediciones = jsondata[key].mediciones.length
-                    let revisison = 'true'
-                    let epoca = 'verano'
-
-                    this.setState({ observaciones: this.state.observaciones[id] = {fecha, observador, faseLunar, epoca, estacion, mediciones, revisison} })
-                    id+=1;
-                }
-                console.log(this.state.observaciones)
-                
-        //    })
-        //.catch(() => this.setState({ hasErrors: true }));
+        fetch('https://cip-rrd.herokuapp.com/observaciones')
+        .then(res => res.json())
+        .then(res => this.setState({observaciones: res}))
+        .catch(() => this.setState({ observaciones: {} }));
     }
 
     render(){
@@ -99,21 +80,6 @@ class Datos extends React.Component{
 				]
 			}]
 		}
-        const options2 = {
-            title: {
-              text: "Basic Column Chart in React"
-            },
-            data: [{				
-                      type: "column",
-                      dataPoints: [
-                          { label: "Apple",  y: 10  },
-                          { label: "Orange", y: 15  },
-                          { label: "Banana", y: 25  },
-                          { label: "Mango",  y: 30  },
-                          { label: "Grape",  y: 28  }
-                      ]
-             }]
-         }
 
         return(
             <main ref="main">
@@ -124,7 +90,7 @@ class Datos extends React.Component{
                                 <h3><strong>Datos</strong></h3>
 
                                 <div>
-                                    <div class="mx-auto row">
+                                    <div className="mx-auto row">
                                         <div className="col-xs-12 col-md-12 col-lg-12 pb-3">
                                             <strong>Por fecha:</strong>
                                             <Row>
@@ -218,7 +184,7 @@ class Datos extends React.Component{
                                         <div className="col-xs-12 col-md-12 col-lg-12  pb-3" id="stationForm" data-cantons-url="{% url 'ajax_load_cantons' %}" data-url="{% url 'table_data' %}"
                                         data-parishes-url="{% url 'ajax_load_parishes' %}" data-stations-url="{% url 'ajax_load_stations' %}">
                                             <strong>Por ubicación:</strong>
-                                            <div class="row">
+                                            <div className="row">
                                                 <FormGroup className={classnames( "col-xs-6 col-sm-4 col-md-4 col-lg-3", {focused: this.state.provFocused})}>
                                                     <InputGroup className="input-group-alternative">
                                                         {/* 
@@ -279,7 +245,7 @@ class Datos extends React.Component{
                                         </div>
                                         
                                         <div className="col-xs-12 col-md-12 col-lg-12">
-                                                <a class="btn btn-secondary" id="filtrar" href="/">Filtrar</a>
+                                                <a className="btn btn-secondary" id="filtrar" href="/">Filtrar</a>
                                         </div>
                                     </div>
                                     <hr/>
@@ -294,7 +260,7 @@ class Datos extends React.Component{
                                                     onClick={e => this.toggleNavs(e, "tabs", 1)}
                                                     role="tab"
                                                 >
-                                                    <i class="fa fa-table mr-2" aria-hidden="true"></i>
+                                                    <i className="fa fa-table mr-2" aria-hidden="true"></i>
                                                     Tabla
                                                 </NavLink>
                                             </NavItem>
@@ -306,7 +272,7 @@ class Datos extends React.Component{
                                                     onClick={e => this.toggleNavs(e, "tabs", 2)}
                                                     role="tab"
                                                 >
-                                                    <i class="fa fa-bar-chart mr-2" aria-hidden="true"></i>
+                                                    <i className="fa fa-bar-chart mr-2" aria-hidden="true"></i>
                                                     Gráficas
                                                 </NavLink>
                                             </NavItem>
@@ -319,7 +285,7 @@ class Datos extends React.Component{
                                                     onClick={e => this.toggleNavs(e, "tabs", 3)}
                                                     role="tab"
                                                 >
-                                                    <i class="fa fa-download mr-2" aria-hidden="true"></i>
+                                                    <i className="fa fa-download mr-2" aria-hidden="true"></i>
                                                     Descargar
                                                 </NavLink>
                                             </NavItem>
@@ -347,14 +313,14 @@ class Datos extends React.Component{
                                 <TabContent activeTab={"tabs" + this.state.tabs}>
                                     <TabPane tabId="tabs1">
                                         <div id="cuadroFiltrado">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">Buscar:</div>
+                                            <div className="input-group mb-2">
+                                                <div className="input-group-prepend">
+                                                    <div className="input-group-text">Buscar:</div>
                                                 </div>
-                                                <input id="buscar" type="text" class="form-control"/>
+                                                <input id="buscar" type="text" className="form-control"/>
                                             </div>
                                         
-                                            <div class="table-responsive">
+                                            <div className="table-responsive">
                                                 <Table hover size="sm">
                                                     <thead className="thead-dark">
                                                         <tr>
@@ -363,22 +329,21 @@ class Datos extends React.Component{
                                                         <th scope="col">Fase Lunar</th>
                                                         <th scope="col">Época</th>
                                                         <th scope="col">Estación</th>
-                                                        <th scope="col" class="text-center">Cant. mediciones</th>
-                                                        <th scope="col" class="text-right">Revisión</th>
+                                                        <th scope="col" className="text-center">Cant. mediciones</th>
+                                                        <th scope="col" className="text-right">Revisión</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody id="tabla">
-                                                        { Object.keys(observaciones).map(k =>
-                                                            (
+                                                        { Object.keys(observaciones).map(k =>(
                                                                 <tr key={"row" + k}>
                                                                     <th scope="row">{k}</th>
                                                                     <td>{observaciones[k].observador}</td>
-                                                                    <td>{observaciones[k].faseLunar}</td>
-                                                                    <td>{observaciones[k].epoca}</td>
-                                                                    <td>{observaciones[k].estacion}</td>
-                                                                    <td>{observaciones[k].mediciones}</td>
-                                                                    <td>{observaciones[k].revisison}</td>
+                                                                    <td>{observaciones[k].fase_lunar}</td>
+                                                                    <td>{'Verano'}</td>
+                                                                    <td>{observaciones[k].estacion.nombre}</td>
+                                                                    <td>{observaciones[k].mediciones.length}</td>
+                                                                    <td>{'True'}</td>
                                                                 </tr>
                                                             )
                                                         )}
@@ -387,91 +352,86 @@ class Datos extends React.Component{
                                             </div>
                                             
                                             <p id="total"></p>
-                                            <ul class="pagination justify-content-center ">
-                                                    <li class="page-item"><a class="page-link" id="Panterior" href="/" onselectstart="return false">Anterior</a></li>
-                                                    <li class="page-item"><a class="page-link" id="Psiguiente" href="/" onselectstart="return false">Siguiente</a></li>
+                                            <ul className="pagination justify-content-center ">
+                                                    <li className="page-item"><a className="page-link" id="Panterior" href="/">Anterior</a></li>
+                                                    <li className="page-item"><a className="page-link" id="Psiguiente" href="/">Siguiente</a></li>
                                             </ul>
                                         </div>   
                                     </TabPane>
                                     
                                     <TabPane tabId="tabs2">
-                                    < div class="tab-pane fade" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab"
-                                data-measurements-url="{% url 'ajax_load_measurements' %}"></ div>
-                                            <div class="mx-auto row">
-                                                <div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
-                                                    <strong>Elija el tipo de variable a graficar:</strong>
-                                                    <select class="form-control form-control-sm" id="graficos">
-                                                        <option></option>
-                                                        <option>Número de mediciones por observaciones</option>
-                                                        <option>Número de observaciones por estaciones</option>
-                                                        <option>Época(Estacion climática)</option>
-                                                        <option>Fase Lunar</option>
-                                                        <optgroup label="Corriente del litoral">
-                                                            <option>Velocidad promedio por Observaciones</option>
-                                                            <option>Tiempo promedio por Observaciones</option>
-                                                            <option>Espacio promedio por Observaciones</option>
-                                                            <option>Dirección corriente litoral</option>
-                                                        </optgroup>
-                                                        <option>Distancia línea de playa a la rompiente de la ola por Observaciones</option>
-                                                        <option>Distancia línea de playa al flotador por Observaciones</option>
-                                                        <option>Ancho de zona de surf</option>
-                                                        <option>Corrientes de resaca</option>
-                                                        <option>Orientación de la playa</option>
-                                                        <optgroup label="viento">
-                                                            <option>Velocidad del viento</option>
-                                                            <option>Dirección del viento</option>
-                                                        </optgroup>
-                                                        <optgroup label="Olas rompientes">
-                                                            <option>Valor promedio del periodo</option>
-                                                            <option>Tipos de olas</option>
-                                                            <option>Ángulo de aproximación</option>
-                                                            <option>Ortogonal de las olas</option>
-                                                            <option>Valor promedio de altura de la rompiente</option>
-                                                        </optgroup>
-                                                    </select>
-                                                </div>
+                                        <div className="mx-auto row">
+                                            <div className="col-xs-12 col-sm-8 col-md-7 col-lg-7 pb-5">
+                                                <strong>Elija el tipo de variable a graficar:</strong>
+                                                <select className="form-control form-control-sm" id="graficos">
+                                                    <option></option>
+                                                    <option>Número de mediciones por observaciones</option>
+                                                    <option>Número de observaciones por estaciones</option>
+                                                    <option>Época(Estacion climática)</option>
+                                                    <option>Fase Lunar</option>
+                                                    <optgroup label="Corriente del litoral">
+                                                        <option>Velocidad promedio por Observaciones</option>
+                                                        <option>Tiempo promedio por Observaciones</option>
+                                                        <option>Espacio promedio por Observaciones</option>
+                                                        <option>Dirección corriente litoral</option>
+                                                    </optgroup>
+                                                    <option>Distancia línea de playa a la rompiente de la ola por Observaciones</option>
+                                                    <option>Distancia línea de playa al flotador por Observaciones</option>
+                                                    <option>Ancho de zona de surf</option>
+                                                    <option>Corrientes de resaca</option>
+                                                    <option>Orientación de la playa</option>
+                                                    <optgroup label="viento">
+                                                        <option>Velocidad del viento</option>
+                                                        <option>Dirección del viento</option>
+                                                    </optgroup>
+                                                    <optgroup label="Olas rompientes">
+                                                        <option>Valor promedio del periodo</option>
+                                                        <option>Tipos de olas</option>
+                                                        <option>Ángulo de aproximación</option>
+                                                        <option>Ortogonal de las olas</option>
+                                                        <option>Valor promedio de altura de la rompiente</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
 
-                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br/></div>
-                                                <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11" id="chartContainer"></div>
+                                            <div className="col-12" id="chartContainer">
+                                                <CanvasJSChart options = {options}  /* onRef={ref => this.chart = ref} *//>
                                             </div>
-                                            <div>
-                                            <CanvasJSChart options = {options}  /* onRef={ref => this.chart = ref} *//>
-                                            </div>
+                                        </div>
                                     </TabPane>
                                     
                                     <TabPane tabId="tabs3">
-                                        <div class="tab-pane fade" id="nav-export" role="tabpanel" aria-labelledby="nav-export-tab">
-                                            <div class="row" >
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <label for="file">Exportar como:</label>
-                                                            <select class="form-control form-control-sm" id="file">
-                                                                <option value="csv">CSV</option>
-                                                                <option value="pdf">PDF</option>
-                                                            </select>
-                                                            <p></p>
+                                        
+                                        <div className="row" >
+                                            <div className="col">
+                                                <div className="row">
+                                                    <div className="col-sm-3">
+                                                        <label for="file">Exportar como:</label>
+                                                        <select className="form-control form-control-sm" id="file">
+                                                            <option value="csv">CSV</option>
+                                                            <option value="pdf">PDF</option>
+                                                        </select>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div className="row" id='todo'>
+                                                    <div className="col checkbox checkbox-primary">
+                                                        <input type="checkbox" className="styled" id="all" checked/>
+                                                        <label for="all" className="form-check-label">Todo</label>
+                                                    </div>
+                                                </div>
+                                                <div id="check-group">
+                                                    <div className="row">
+                                                        <div className="col checkbox checkbox-primary">
+                                                            <input type="checkbox" className="styled" id="resume" checked value="resume"/>
+                                                            <label for="resume" className="form-check-label">Datos resumidos</label>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <div class="row" id='todo'>
-                                                        <div class="col checkbox checkbox-primary">
-                                                            <input type="checkbox" class="styled" id="all" checked/>
-                                                            <label for="all" class="form-check-label">Todo</label>
-                                                        </div>
-                                                    </div>
-                                                    <div id="check-group">
-                                                        <div class="row">
-                                                            <div class="col checkbox checkbox-primary">
-                                                                <input type="checkbox" class="styled" id="resume" checked value="resume"/>
-                                                                <label for="resume" class="form-check-label">Datos resumidos</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <button class="btn btn-secondary" id="download">Exportar</button>
-                                                        </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col">
+                                                        <button className="btn btn-secondary" id="download">Exportar</button>
                                                     </div>
                                                 </div>
                                             </div>

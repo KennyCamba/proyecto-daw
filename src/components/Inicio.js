@@ -208,7 +208,7 @@ class Inicio extends React.Component{
 
                         {/* Mapa */}
                         <div className="text-center pb-5">
-                            <i class="fa fa-question-circle fa-lg primaryColor" onClick={this.intro.bind(this)} aria-hidden="true"></i>
+                            <i className="fa fa-question-circle fa-lg primaryColor" onClick={this.intro.bind(this)} aria-hidden="true"></i>
                             
                             <div  className="container-fluid col-md-6 col-sm-9" id="map">
                                 <Map style="mapbox://styles/mapbox/streets-v8" 
@@ -239,7 +239,7 @@ class Inicio extends React.Component{
                                                             <strong>Ubicación: </strong> {stations[k].parish}, cantón  {stations[k].canton},<br></br>
                                                             provincia de {stations[k].province}<br/>
                                                             <strong>Total de observaciones: </strong>{this.state.isLoading ? "..." : sts[k].obs}<br/>
-                                                            <strong>Última observación: </strong>{this.state.isLoading ? "..." : this.formatDate(sts[k].fecha)}                                                        
+                                                            <strong>Última observación: </strong>{this.state.isLoading ? "..." : this.formatDate(sts[k].fecha)}
                                                         </div>        
                                                     </Popup>
                                                 </div>
