@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames'
 import jsondata from './../assets/resource/observaciones.json'
-
 import CanvasJSReact from './../assets/vendor/canvasjs.react';
 // react plugin used to create datetimepicker
 import ReactDatetime from "react-datetime";
@@ -26,7 +25,7 @@ import {
     Table,
   } from "reactstrap";
 
-//var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class Datos extends React.Component{
     constructor(args){
@@ -100,7 +99,21 @@ class Datos extends React.Component{
 				]
 			}]
 		}
-
+        const options2 = {
+            title: {
+              text: "Basic Column Chart in React"
+            },
+            data: [{				
+                      type: "column",
+                      dataPoints: [
+                          { label: "Apple",  y: 10  },
+                          { label: "Orange", y: 15  },
+                          { label: "Banana", y: 25  },
+                          { label: "Mango",  y: 30  },
+                          { label: "Grape",  y: 28  }
+                      ]
+             }]
+         }
 
         return(
             <main ref="main">
@@ -374,7 +387,7 @@ class Datos extends React.Component{
                                             </div>
                                             
                                             <p id="total"></p>
-                                            <ul class="pagination justify-content-center">
+                                            <ul class="pagination justify-content-center ">
                                                     <li class="page-item"><a class="page-link" id="Panterior" href="/" onselectstart="return false">Anterior</a></li>
                                                     <li class="page-item"><a class="page-link" id="Psiguiente" href="/" onselectstart="return false">Siguiente</a></li>
                                             </ul>
@@ -382,8 +395,8 @@ class Datos extends React.Component{
                                     </TabPane>
                                     
                                     <TabPane tabId="tabs2">
-                                        <div class="tab-pane fade" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab"
-                                data-measurements-url="{% url 'ajax_load_measurements' %}">
+                                    < div class="tab-pane fade" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab"
+                                data-measurements-url="{% url 'ajax_load_measurements' %}"></ div>
                                             <div class="mx-auto row">
                                                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
                                                     <strong>Elija el tipo de variable a graficar:</strong>
@@ -421,11 +434,9 @@ class Datos extends React.Component{
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br/></div>
                                                 <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11" id="chartContainer"></div>
                                             </div>
-                                            
                                             <div>
-                                            <CanvasJSChart options = {options} /* onRef={ref => this.chart = ref} *//>
+                                            <CanvasJSChart options = {options}  /* onRef={ref => this.chart = ref} *//>
                                             </div>
-                                        </div>
                                     </TabPane>
                                     
                                     <TabPane tabId="tabs3">
