@@ -24,17 +24,22 @@ import { Link } from "react-router-dom";
 class Estacion extends React.Component {
 
     render(){
-        return <Container className="pt-lg-md">
-        <Row className="justify-content-center">
-            <Col lg="5">
-                <Card className="bg-secondary shadow border-0">
-                    
-                </Card>
-                
-            </Col>
-        </Row>
-        <br/>
-    </Container>
+        return (
+        <main ref="main">
+        <section className="section section-shaped section-lg">
+            <div className="shape shape-style-1 bg-gradient-default">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+            </div>
+            <p className="text-center">aqui va el form</p>
+            </section>
+        </main>);
     }
 
 
