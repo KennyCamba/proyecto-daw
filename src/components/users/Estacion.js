@@ -4,45 +4,68 @@ import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 import HttpsOutlinedIcon from '@material-ui/icons/HttpsOutlined';
 import '../../assets/css/login.css';
 import {
-    Button,
-    Card,
-    CardHeader,
-    CardBody,
-    FormGroup,
-    Form,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
-    Container,
-    Row,
-    Col,
-    NavLink,
-  } from "reactstrap";
-  
+Button,
+Card,
+CardHeader,
+CardBody,
+FormGroup,
+Form,
+FormText,
+Input,
+InputGroupAddon,
+InputGroupText,
+InputGroup,
+Container,
+Row,
+Col,
+NavLink,
+Label,
+} from "reactstrap";
 import { Link } from "react-router-dom";
 class Estacion extends React.Component {
-
-    render(){
-        return (
-        <main ref="main">
-        <section className="section section-shaped section-lg">
-            <div className="shape shape-style-1 bg-gradient-default">
+render(){
+return (
+<main ref="main">
+    <section className="section section-shaped section-lg">
+        <div className="shape shape-style-1 bg-gradient-default">
+            <span />
                 <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-            </div>
-            <p className="text-center">aqui va el form</p>
-            </section>
-        </main>);
-    }
-
-
-}
-
-export default Estacion
+                    <span />
+                        <span />
+                            <span />
+                                <span />
+                                    <span />
+                                        <span />
+                                        </div>
+                                        <Form>
+                                            <p className="text-center">Registro de Estacion</p>
+                                            <FormGroup>
+                                                <Label for="EjemploNombre">Nombre</Label>
+                                                <Input type="nombre" name="nombre" id="EjemploNombre" placeholder="Escriba el nombre" />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label for="EjemploLatitud">Latitud</Label>
+                                                <Input type="latitud" name="latitud" id="EjemploLatitud" placeholder="Indique la latitud" />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label for="EjemploLongitud">Longitud</Label>
+                                                <Input type="logintud" name="logintud" id="EjemploLatitud" placeholder="Indique la longitud" />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label for="EjemploProvincia">Provincia</Label>
+                                                <Input type="pronvincia" name="provincia" id="EjemploProvincia" placeholder="Escoga la provincia" />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label for="EjemploCanton">Canton</Label>
+                                                <Input type="canton" name="canton" id="EjemploCanton" placeholder="Escoga el canton" />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label for="EjemploParroquia">Parroquia</Label>
+                                                <Input type="parroquia" name="parroquia" id="EjemploParroquia" placeholder="Escoga la parroquia" />
+                                            </FormGroup>
+                                        </Form>
+                                    </section>
+                                </main>);
+                                }
+                                }
+                                export default Estacion
