@@ -21,7 +21,11 @@ import {
     NavLink,
     TabContent,
     TabPane,
+    
     Table,
+    Pagination, 
+    PaginationItem, 
+    PaginationLink,
   } from "reactstrap";
 
 //var CanvasJS = CanvasJSReact.CanvasJS;
@@ -49,8 +53,22 @@ class Datos extends React.Component{
         .catch(() => this.setState({ observaciones: {} }));
     }
 
+    updateTable(e){
+        let obj = this.state.observaciones
+        let criterio = e.target.value
+        
+        var objects = {};
+        for (var i in obj) {
+            console.log(obj[i].observador.indexOf(i))
+            if(i === criterio || i.indexOf(obj[i].observador) === 0){
+                objects[i] = obj[i]
+            }
+        }
+        console.log(objects)
+    }
+
     render(){
-        var observaciones = this.state.observaciones
+        let observaciones = this.state.observaciones
         const options = {
 			animationEnabled: true,
 			exportEnabled: true,
@@ -79,7 +97,7 @@ class Datos extends React.Component{
 					{ x: 130, y: 36 }
 				]
 			}]
-		}
+        }
 
         return(
             <main ref="main">
@@ -311,54 +329,87 @@ class Datos extends React.Component{
                         <Card className="shadow">
                             <CardBody>
                                 <TabContent activeTab={"tabs" + this.state.tabs}>
+                                    {/* Tabla de datos */}
                                     <TabPane tabId="tabs1">
                                         <div id="cuadroFiltrado">
-                                            <div className="input-group mb-2">
-                                                <div className="input-group-prepend">
-                                                    <div className="input-group-text">Buscar:</div>
-                                                </div>
-                                                <input id="buscar" type="text" className="form-control"/>
-                                            </div>
-                                        
-                                            <div className="table-responsive">
-                                                <Table hover size="sm">
-                                                    <thead className="thead-dark">
-                                                        <tr>
-                                                        <th scope="col">Fecha</th>
-                                                        <th scope="col">Observador</th>
-                                                        <th scope="col">Fase Lunar</th>
-                                                        <th scope="col">Época</th>
-                                                        <th scope="col">Estación</th>
-                                                        <th scope="col" className="text-center">Cant. mediciones</th>
-                                                        <th scope="col" className="text-right">Revisión</th>
-                                                        </tr>
-                                                    </thead>
+                                            <FormGroup>
+                                                <InputGroup className={classnames( "input-group-alternative mb-4", {focused: this.state.searchFocused})}>
+                                                    <InputGroupAddon addonType="prepend">
+                                                        <InputGroupText>
+                                                            <i className="fa fa-search" aria-hidden="true"></i>
+                                                        </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input className="form-control-alternative" placeholder="Buscar observación" type="text"  
+                                                    onFocus={e => this.setState({ searchFocused: true })}  
+                                                    onBlur={e => this.setState({ searchFocused: false })}
+                                                    onChange={this.updateTable.bind(this)}
+                                                    />
+                                                </InputGroup>
+                                            </FormGroup>
 
-                                                    <tbody id="tabla">
-                                                        { Object.keys(observaciones).map(k =>(
-                                                                <tr key={"row" + k}>
-                                                                    <th scope="row">{k}</th>
-                                                                    <td>{observaciones[k].observador}</td>
-                                                                    <td>{observaciones[k].fase_lunar}</td>
-                                                                    <td>{'Verano'}</td>
-                                                                    <td>{observaciones[k].estacion.nombre}</td>
-                                                                    <td>{observaciones[k].mediciones.length}</td>
-                                                                    <td>{'True'}</td>
-                                                                </tr>
-                                                            )
-                                                        )}
-                                                    </tbody>
-                                                </Table>   
-                                            </div>
+                                            <Table responsive hover size="sm">
+                                                <thead className="thead-dark">
+                                                    <tr>
+                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Observador</th>
+                                                    <th scope="col">Fase Lunar</th>
+                                                    <th scope="col">Época</th>
+                                                    <th scope="col">Estación</th>
+                                                    <th scope="col" className="text-center">Cant. mediciones</th>
+                                                    <th scope="col" className="text-right">Revisión</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody id="tabla">
+                                                    { Object.keys(observaciones).map(k =>(
+                                                            <tr key={"row" + k}>
+                                                                <th scope="row">{parseInt(k,10)+1}</th>
+                                                                <td>{observaciones[k].observador}</td>
+                                                                <td>{observaciones[k].fase_lunar}</td>
+                                                                <td>{'Verano'}</td>
+                                                                <td>{observaciones[k].estacion.nombre}</td>
+                                                                <td className="text-center">{observaciones[k].mediciones.length}</td>
+                                                                <td className="text-right">{parseInt(k,10)%2 === 0 ? 'True': 'False'}</td>
+                                                            </tr>
+                                                        )
+                                                    )}
+                                                </tbody>
+                                            </Table>
+                                            <p id="total"/>
                                             
-                                            <p id="total"></p>
-                                            <ul className="pagination justify-content-center ">
-                                                    <li className="page-item"><a className="page-link" id="Panterior" href="/">Anterior</a></li>
-                                                    <li className="page-item"><a className="page-link" id="Psiguiente" href="/">Siguiente</a></li>
-                                            </ul>
+                                            <nav aria-label="Page navigation example">
+                                                <Pagination className="pagination justify-content-center" listClassName="justify-content-center" >
+                                                    <PaginationItem className="disabled">
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()} tabIndex="-1" >
+                                                            <i className="fa fa-angle-left" />
+                                                            <span className="sr-only">Previous</span>
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+                                                    
+                                                    <PaginationItem className="active">
+                                                        <PaginationLink href="#/" onClick={e => e.preventDefault()}>
+                                                            1
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+
+                                                    <PaginationItem>
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()}>
+                                                            2
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+
+                                                    <PaginationItem>
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()}>
+                                                            <i className="fa fa-angle-right" />
+                                                            <span className="sr-only">Next</span>
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+                                                </Pagination>
+                                            </nav>
                                         </div>   
                                     </TabPane>
                                     
+                                    {/* Graficos */}
                                     <TabPane tabId="tabs2">
                                         <div className="mx-auto row">
                                             <div className="col-xs-12 col-sm-8 col-md-7 col-lg-7 pb-5">

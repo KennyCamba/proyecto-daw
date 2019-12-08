@@ -1,21 +1,32 @@
 import React from 'react'
 // reactstrap components
-import { Card, Container, Row, Col, Button } from "reactstrap";
+import { Card, Container, Row, Col, Button, Table, Pagination, PaginationItem, PaginationLink,} from "reactstrap";
 import perfil from '../../assets/img/team-4-800x800.jpg'
 
 class Profile extends React.Component{
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {observaciones : {},}
     }
 
     componentDidMount() {
         document.documentElement.scrollTop = 0;
         document.scrollingElement.scrollTop = 0;
         this.refs.main.scrollTop = 0;
+
+        fetch('https://cip-rrd.herokuapp.com/observaciones')
+        .then(res => res.json())
+        .then(res => this.setState({observaciones: res}))
+        .catch(() => this.setState({ observaciones: {} }));
+        
     }
 
     render(){
+        let observaciones = this.state.observaciones;
+        const id = this.props.id;
+        const nombre = this.props.nombre;
+        const apellido = this.props.apellido;
+
         return(
             <main className="profile-page" ref="main">
                 <section className="section-profile-cover section-shaped my-0">
@@ -57,9 +68,10 @@ class Profile extends React.Component{
                                         </div>
                                     </Col>
                                 </Row>
+                                
                                 <div className="text-center mt-5">
                                     <h3>
-                                        Nombre Apellido{" "}
+                                        {id} | {nombre} {apellido}
                                     </h3>
                                     <div className="h6 font-weight-300">
                                         <i className="ni location_pin mr-2" />
@@ -74,13 +86,74 @@ class Profile extends React.Component{
                                         Institución
                                     </div>
                                 </div>
+                                
                                 <div className="mt-5 py-5 border-top text-center">
                                     <Row className="justify-content-center">
-                                        <Col lg="9">
-                                            <h6>Mediciones</h6>
-                                            <p>
-                                            DashBoard
-                                            </p>
+                                        <Col lg="10">
+                                            <h6 className="colorTitle">Observaciones</h6>
+                                            <Table responsive hover size="sm">
+                                                <thead className="thead-dark">
+                                                    <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Observador</th>
+                                                    <th scope="col">Fase Lunar</th>
+                                                    <th scope="col">Época</th>
+                                                    <th scope="col">Estación</th>
+                                                    <th scope="col" className="text-center">Cant. mediciones</th>
+                                                    <th scope="col" className="text-right">Revisión</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody id="tabla">
+                                                    { Object.keys(observaciones).map(k => {
+                                                        if(observaciones[k].observador.localeCompare('Steven Araujo') === 0)
+                                                            return(  <tr key={"row" + k}>
+                                                                        <th scope="row">{parseInt(k,10)+1}</th>
+                                                                        <td>{observaciones[k].observador}</td>
+                                                                        <td>{observaciones[k].fase_lunar}</td>
+                                                                        <td>{'Verano'}</td>
+                                                                        <td>{observaciones[k].estacion.nombre}</td>
+                                                                        <td className="text-center">{observaciones[k].mediciones.length}</td>
+                                                                        <td className="text-right">{parseInt(k,10)%2 === 0 ? 'True': 'False'}</td>
+                                                                    </tr>
+                                                            )
+                                                        else
+                                                            return ''
+                                                    })
+                                                    }
+                                                </tbody>
+                                            </Table>
+                                            <p id="total"/>
+
+                                            <nav aria-label="Page navigation example">
+                                                <Pagination className="pagination justify-content-center" listClassName="justify-content-center" >
+                                                    <PaginationItem className="disabled">
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()} tabIndex="-1" >
+                                                            <i className="fa fa-angle-left" />
+                                                            <span className="sr-only">Previous</span>
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+                                                    
+                                                    <PaginationItem className="active">
+                                                        <PaginationLink href="#/" onClick={e => e.preventDefault()}>
+                                                            1
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+
+                                                    <PaginationItem>
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()}>
+                                                            2
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+
+                                                    <PaginationItem>
+                                                        <PaginationLink href="/" onClick={e => e.preventDefault()}>
+                                                            <i className="fa fa-angle-right" />
+                                                            <span className="sr-only">Next</span>
+                                                        </PaginationLink>
+                                                    </PaginationItem>
+                                                </Pagination>
+                                            </nav>
                                         </Col>
                                     </Row>
                                 </div>

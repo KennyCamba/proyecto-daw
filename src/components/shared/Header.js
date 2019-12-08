@@ -76,9 +76,9 @@ class Header extends React.Component{
                     <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                         {/* Opciones del encabezado */}
                         <NavItem>
-                            <NavLink tag={Link} to="/">
+                            <NavLink tag={Link} to="/"  >
                                 <i className="fa fa-home d-lg-none mr-1" />
-                                <span className="nav-link-inner--text">Inicio</span>
+                                <span className="nav-link-inner--text ">Inicio</span>
                             </NavLink>
                         </NavItem>
                         <NavItem>
@@ -114,8 +114,8 @@ class Header extends React.Component{
                                 <DropdownItem to="/register/" tag={Link}>
                                     Registrarse
                                 </DropdownItem>
-                                <DropdownItem to="/estacion/" tag={Link}>
-                                    Registrar Estación
+                                <DropdownItem to="/admin/" tag={Link}>
+                                    DashBoard
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem to="/salir/" tag={Link}>

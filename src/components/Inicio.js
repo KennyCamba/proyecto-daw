@@ -27,22 +27,6 @@ class Inicio extends React.Component{
             initialStep: 0,
             steps: [
                 {
-                    element: '.Datos',
-                    intro: 'Aquí se pueden observar resumenes, estadísticas de las observaciones realizadas y descargarlas.',
-                },
-                {
-                    element: '.Observaciones',
-                    intro: 'Aquí se puede registrar las nuevas observaciones.',
-                },
-                {
-                    element: '.Contactanos',
-                    intro: 'Formulario para sugerencias o consultas.',
-                },
-                {
-                    element: '.Desplegable',
-                    intro: 'Entre las opciones de aqui se puede iniciar, cerrar sesión, ver perfil, registrarse.',
-                },
-                {
                     element: '.mapboxgl-canvas',
                     intro: 'En este mapa se podran observar las estaciones con su localización.',
                 },
@@ -66,14 +50,32 @@ class Inicio extends React.Component{
                     element: '.redesSociales',
                     intro: 'Redes sociales.',
                 },
+                {
+                    element: '#quienesSomosFooter',
+                    intro: 'Aquí se podra saber un poco mas acerca de nosotros.',
+                },
+                {
+                    element: '#desarrolladoresFooter',
+                    intro: 'Información acerca de los desarrolladores',
+                },
             ],
             hintsEnabled: true,
             hints: [
                 {
-                element: '.mapboxgl-canvas',
-                hint: 'En este mapa se podran observar las estaciones con su localización.',
-                hintPosition: 'middle-right',
-                }
+                    element: '.mapboxgl-canvas',
+                    hint: 'En este mapa se podran observar las estaciones con su localización.',
+                    hintPosition: 'middle-right',
+                },
+                {
+                    element: '#cardInicio',
+                    hint: 'Aquí información importante de la página web.',
+                    hintPosition: 'middle-right',
+                },
+                {
+                    element: '.carousel',
+                    hint: 'Última noticias de las estaciones.',
+                    hintPosition: 'middle-right',
+                },
             ]
         };
         this.hide = this.hide.bind(this);
@@ -208,28 +210,27 @@ class Inicio extends React.Component{
 
                         {/* Mapa */}
                         <div className="text-center pb-5">
-                            <i className="fa fa-question-circle fa-lg primaryColor" onClick={this.intro.bind(this)} aria-hidden="true"></i>
                             
-                            <div  className="container-fluid col-md-6 col-sm-9" id="map">
+                            <div  className="container-fluid col-md-9 col-sm-9" id="map">
                                 <Map style="mapbox://styles/mapbox/streets-v8" 
                                     containerStyle={{
                                         height: '80vh',
                                     }}
                                     center={[-79.183403, -1.831239]}
                                     zoom={[6]}>
-                                    <div id="controls">
-                                        <ZoomControl/>
-                                        <RotationControl/>
-                                    </div>
-                                    <div id="markers">
+                                        <div id="controls">
+                                            <ZoomControl/>
+                                            <RotationControl/>
+                                        </div>
+                                        <div id="markers">
                                         { Object.keys(stations).map(k =>(
                                             <div key={"maker" + k}>
                                                 <Layer type="symbol"
                                                 id={k}
                                                 layout={{'icon-image': 'marker-15'}}>
-                                                <Feature coordinates={[stations[k].coord.lng, stations[k].coord.lat]} 
-                                                onMouseEnter={() => this.show("popup" + k)}
-                                                onMouseLeave={() => this.hide("popup" + k)}/>
+                                                    <Feature coordinates={[stations[k].coord.lng, stations[k].coord.lat]} 
+                                                    onMouseEnter={() => this.show("popup" + k)}
+                                                    onMouseLeave={() => this.hide("popup" + k)}/>
                                                 </Layer>
                                                 <div className="d-none" id={"popup" + k}>
                                                     <Popup
@@ -248,6 +249,8 @@ class Inicio extends React.Component{
                                     </div>
                                 </Map>
                             </div>
+                            <i className="fa fa-question-circle fa-lg primaryColor" onClick={this.intro.bind(this)} aria-hidden="true"></i>
+
                         </div>
 
                         {/* SVG separator la diagonal */}
@@ -261,7 +264,7 @@ class Inicio extends React.Component{
                 
                 <section className="section section-lg pt-lg-0 mt--200">
                     <div className="container">
-                            <Card className=" shadow border-0">{/*card-lift--hover esta clase para efecto de posicion de mouse*/}
+                        <Card className=" shadow border-0" id="cardInicio">{/*card-lift--hover esta clase para efecto de posicion de mouse*/}
                             <CardBody className="py-5">
                                 <div className="QueHacemos">
                                     <h2 className="text-left primaryColor">¿Qué hacemos?</h2>

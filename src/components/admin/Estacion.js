@@ -26,7 +26,7 @@ class Estacion extends React.Component {
 render(){
 return (
 <main ref="main">
-    <section className="section section-shaped section-lg">
+    <section className="section-shaped">
         <div className="shape shape-style-1 bg-gradient-default">
             <span />
                 <span />
@@ -38,7 +38,7 @@ return (
                                         <span />
                                         </div>
                                         <Form>
-                                            <p className="text-center">Registro de Estacion</p>
+                                            <h3 className="text-center colorTitle">Registro de Estacion</h3>
                                             <FormGroup>
                                                 <Label for="EjemploNombre">Nombre</Label>
                                                 <Input type="nombre" name="nombre" id="EjemploNombre" placeholder="Escriba el nombre" />

@@ -21,8 +21,8 @@ import Login from './components/users/Login';
 import Register from './components/users/Register';
 import Profile from './components/users/Profile'
 import Desarrolladores from './components/Desarrolladores';
-import Observacion from './components/Observacion'
-import Estacion from './components/users/Estacion'
+import Observacion from './components/Observacion';
+import Admin from './components/admin/Admin';
 
 ReactDOM.render(
     <div className="App">
@@ -34,10 +34,10 @@ ReactDOM.render(
           <Route path='/nosotros/' component={Nosotros} />
           <Route path='/login/' component={Login}/>
           <Route path='/register/' component={Register}/>
-          <Route path='/estacion/' component={Estacion}/>
           <Route path='/desarrolladores/' component={Desarrolladores}/>
           <Route path='/observacion/' component={Observacion} />
-          <Route path='/profile/' component={Profile}/>
+          <Route path='/profile/' render = {(props) => <Profile {...props} id={10} nombre="Karla" apellido="Pérez"/>}/>
+          <Route path='/admin/' component={Admin}/>
         </Layout>
       </Router>
     </div>

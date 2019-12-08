@@ -22,7 +22,7 @@ class Footer extends React.Component {
       <footer className="footer has-cards">
         <Container>
           <Row className="align-items-center justify-content-md-between">
-            <Col md="3" xs="4">
+            <Col md="3" xs="3">
               <div className="copyright">
                 © {new Date().getFullYear()}{" "}
                 <a href="https://www.creative-tim.com?ref=adsr-footer">
@@ -32,9 +32,9 @@ class Footer extends React.Component {
               </div>
             </Col>
             
-            <Col md="3" xs= "4" className="redesSociales">
+            <Col md="3" xs= "5" className="redesSociales">
               <Button className="btnFooter" color="twitter" href="https://twitter.com/creativetim" id="tooltip126536702" size="lg" target="_blank" >
-                <i class="fa fa-twitter" aria-hidden="true"/>
+                <i className="fa fa-twitter" aria-hidden="true"/>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip126536702">
                 Follow us
@@ -49,10 +49,10 @@ class Footer extends React.Component {
 
             <Col md="6" xs="4">
               <Nav className="nav-footer justify-content-end">
-                  <NavItem>
+                  <NavItem id="quienesSomosFooter">
                       <NavLink tag={Link} to="/nosotros/">Quienes somos?</NavLink>
                   </NavItem>
-                  <NavItem>
+                  <NavItem id="desarrolladoresFooter">
                         <NavLink tag={Link} to="/desarrolladores/">Desarrolladores</NavLink>
                   </NavItem>
               </Nav>
