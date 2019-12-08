@@ -19,11 +19,28 @@ Desarrollo de una plataforma que permita el ingreso de datos océano-costeros de
 3. npm start
 
 ### Dependencias:
-npm install --save reactstrap react react-dom
-npm install --save react-router
-npm install react-router-dom
-npm install @material-ui/core
-npm install @material-ui/icons
+npm install --save react-router,
+npm install react-router-dom,
+npm install react-mapbox-gl mapbox-gl --save,
+npm install --save reactstrap react react-dom,
+npm install node-sass --save,
+npm install headroom.js --save,
+npm install classnames --save,
+npm install intro.js-react,
+npm install intro.js --save,
+npm install --save react-datetime,
+npm install moment --save,
+npm install react-geolocated --save
+npm install mapbox-gl --save
+
+npm install @material-ui/core,
+npm install @material-ui/icons,
+
+
+### Pages:
+https://reactstrap.github.io/
+https://material-ui.com/es/components/material-icons/
+https://devcenter.heroku.com/articles/logging#view-logs
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

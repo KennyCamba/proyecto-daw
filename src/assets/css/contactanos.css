@@ -1,0 +1,14 @@
+.containerContact{
+    border: 2pt solid #003135;
+    border-radius: 2%;
+    width: 60em;
+    height: 60em;
+
+}
+
+/* Ocultar el las sombras, el borde del ComboBox y que se ubique sin padding*/
+.custom-select{
+    padding: 0% 0% 0% 0%;
+    border: 1px solid #ffffff;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0);
+}
