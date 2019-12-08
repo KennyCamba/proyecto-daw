@@ -30,6 +30,8 @@ npm install intro.js-react,
 npm install intro.js --save,
 npm install --save react-datetime,
 npm install moment --save,
+npm install react-geolocated --save
+npm install mapbox-gl --save
 
 npm install @material-ui/core,
 npm install @material-ui/icons,
